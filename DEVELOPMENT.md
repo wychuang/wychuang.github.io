@@ -52,8 +52,8 @@ npm run build
 - 章节标题使用 Model Radar 式 masthead：紧排巨型标题与小号等宽读数并置。项目说明和画面直接拼接，避免回到常规卡片与浮层。
 - 动效共用“落位—呼吸—扫描”的低幅度节奏；人物漂浮不超过 4px，图像缩放不超过 1.018，色块位移不超过 7px。
 - 简笔插画头像以站点所有者提供的本人照片为身份参考，使用均匀光线与中长焦比例，保持小尺寸，仅作为首屏识别符。
-- 人物使用编辑式识别卡呈现：矩形裁切、套准线、低细节色面和一条窄扫描带。完整面部始终可见，避免浓重阴影和过多真实纹理。
-- 联系区使用低对比五轴工作画像雷达作为越出边框的背景；轴向只表达工作主题，不呈现虚构的精确能力分数。
+- 人物使用编辑式识别卡呈现：矩形裁切、套准线、低细节色面和低清信号层。完整面部始终可见，扫描带只从上向下运行，拖影留在扫描线后方。
+- 联系区使用低对比圆形项目状态雷达作为越出边框的背景。方位对应产品、开发、评测和研究，半径对应原型、可用版本和已发布，信号点只能使用页面已有项目与真实状态。
 - 深色模式突出酸绿识别条、设备铭牌与硬边偏移阴影；浅色模式使用纸张、深墨和橄榄套印，避免发光雷达效果。
 - 首次访问固定使用深色模式，并根据浏览器语言选择中英文；手动主题和语言写入 `localStorage`，后续访问继续沿用。
 - 中文是 HTML 内的无脚本回退。每个 `data-i18n`、`data-i18n-aria` 和 `data-i18n-alt` 键必须同时提供中英文内容。
@@ -72,8 +72,8 @@ npm run build
 - Build section mastheads from oversized compressed titles, compact mono readouts, hard borders, and directly joined media/copy panels.
 - Keep motion on one low-amplitude settle, breathe, and scan rhythm; portrait drift stays within 4px, image scale within 1.018, and color-block travel within 7px.
 - Use the owner-approved likeness as the reference for a compact, low-detail illustrated identity card with registration marks and raster texture.
-- Keep the full face visible and move only a narrow horizontal scanning band. Stop the band under reduced motion and remove overlays in print.
-- Keep the contact radar low-contrast and decorative, stop its sweep under reduced motion, and remove it from print.
+- Keep the full face visible and move one horizontal scan band from top to bottom. Its trail stays behind the moving line. Stop the band under reduced motion and remove overlays in print.
+- Keep the contact scope low-contrast but meaningful: direction maps work domains, distance maps delivery stages, and every blip maps to a real project. Stop its sweep under reduced motion and remove it from print.
 - Default to dark mode, detect the browser language, and persist explicit language/theme choices in `localStorage`.
 - Keep Chinese as the no-script HTML fallback and provide both languages for every translation hook.
 - Preserve the official colors and proportions of the ZJU and Tsinghua emblems; only trim blank canvas and scale proportionally.

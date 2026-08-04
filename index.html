@@ -490,33 +490,60 @@
 
       <section id="contact" class="contact section-frame" aria-labelledby="contact-title">
         <div class="contact-radar" aria-hidden="true">
-          <svg viewBox="0 0 600 600" focusable="false">
+          <svg viewBox="0 0 720 720" focusable="false">
             <g class="contact-radar-grid">
-              <polygon points="300,40 547,220 453,510 147,510 53,220"></polygon>
-              <polygon points="300,105 485,240 415,458 185,458 115,240"></polygon>
-              <polygon points="300,170 424,260 376,405 224,405 176,260"></polygon>
-              <polygon points="300,235 362,280 338,353 262,353 238,280"></polygon>
-              <path d="M300 300V40M300 300L547 220M300 300L453 510M300 300L147 510M300 300L53 220"></path>
+              <circle class="contact-radar-scope" cx="360" cy="360" r="310"></circle>
+              <circle cx="360" cy="360" r="240"></circle>
+              <circle cx="360" cy="360" r="170"></circle>
+              <circle cx="360" cy="360" r="100"></circle>
+              <path d="M360 35V685M35 360H685M130 130L590 590M590 130L130 590"></path>
+              <circle class="contact-radar-ticks" cx="360" cy="360" r="286"></circle>
             </g>
-            <polygon class="contact-radar-profile" points="300,71 535,224 419,464 175,472 122,242"></polygon>
-            <g class="contact-radar-nodes">
-              <circle cx="300" cy="71" r="6"></circle>
-              <circle cx="535" cy="224" r="6"></circle>
-              <circle cx="419" cy="464" r="6"></circle>
-              <circle cx="175" cy="472" r="6"></circle>
-              <circle cx="122" cy="242" r="6"></circle>
-              <circle cx="300" cy="300" r="8"></circle>
+            <g class="contact-radar-stage-labels">
+              <text x="370" y="258">PROTOTYPE</text>
+              <text x="370" y="188">WORKING</text>
+              <text x="370" y="118">SHIPPED</text>
             </g>
-            <line class="contact-radar-sweep" x1="300" y1="300" x2="300" y2="34"></line>
-            <g class="contact-radar-labels">
-              <text x="300" y="20" text-anchor="middle">EVIDENCE</text>
-              <text x="558" y="216">PRODUCT</text>
-              <text x="460" y="544">DESIGN</text>
-              <text x="140" y="544" text-anchor="end">SYSTEMS</text>
-              <text x="42" y="216" text-anchor="end">RESEARCH</text>
+            <g class="contact-radar-sweep">
+              <path class="contact-radar-beam" d="M360 360L360 50A310 310 0 0 1 579.2 140.8Z"></path>
+              <line class="contact-radar-sweep-line" x1="360" y1="360" x2="360" y2="42"></line>
+            </g>
+            <g class="contact-radar-projects">
+              <g class="contact-radar-blip contact-radar-blip-model">
+                <line x1="126" y1="197" x2="72" y2="171"></line>
+                <circle class="contact-radar-blip-pulse" cx="126" cy="197" r="15"></circle>
+                <circle class="contact-radar-blip-core" cx="126" cy="197" r="5"></circle>
+                <text x="68" y="159" text-anchor="end"><tspan>MODEL RADAR</tspan><tspan x="68" dy="14">SHIPPED / LIVE</tspan></text>
+              </g>
+              <g class="contact-radar-blip contact-radar-blip-lightloom">
+                <line x1="540" y1="234" x2="591" y2="205"></line>
+                <circle class="contact-radar-blip-pulse" cx="540" cy="234" r="15"></circle>
+                <circle class="contact-radar-blip-core" cx="540" cy="234" r="5"></circle>
+                <text x="586" y="193" text-anchor="end"><tspan>LIGHTLOOM</tspan><tspan x="586" dy="14">WORKING / V0.8.5</tspan></text>
+              </g>
+              <g class="contact-radar-blip contact-radar-blip-eval">
+                <line x1="162" y1="413" x2="91" y2="438"></line>
+                <circle class="contact-radar-blip-pulse" cx="162" cy="413" r="15"></circle>
+                <circle class="contact-radar-blip-core" cx="162" cy="413" r="5"></circle>
+                <text x="87" y="430" text-anchor="end"><tspan>SEARCH EVAL</tspan><tspan x="87" dy="14">WORKING / VERIFIED SET</tspan></text>
+              </g>
+              <g class="contact-radar-blip contact-radar-blip-rag">
+                <line x1="387" y1="461" x2="438" y2="500"></line>
+                <circle class="contact-radar-blip-pulse" cx="387" cy="461" r="15"></circle>
+                <circle class="contact-radar-blip-core" cx="387" cy="461" r="5"></circle>
+                <text x="444" y="502"><tspan>PUBMED RAG</tspan><tspan x="444" dy="14">PROTOTYPE / THESIS</tspan></text>
+              </g>
+            </g>
+            <g class="contact-radar-axis-labels">
+              <text x="280" y="105" text-anchor="middle">PRODUCT</text>
+              <text x="605" y="330" text-anchor="end">BUILD</text>
+              <text x="440" y="590" text-anchor="middle">RESEARCH</text>
+              <text x="90" y="345">EVALUATION</text>
+              <text class="contact-radar-center-label" x="360" y="354" text-anchor="middle">PROJECT</text>
+              <text class="contact-radar-center-label" x="360" y="369" text-anchor="middle">SIGNALS</text>
             </g>
           </svg>
-          <span class="contact-radar-caption mono">WORKING PROFILE / 05 AXES</span>
+          <span class="contact-radar-caption mono" data-i18n="contact.radarCaption">项目状态雷达 / 原型 · 可用版本 · 已发布</span>
         </div>
         <div class="contact-copy reveal">
           <p class="section-number mono">03 / CONTACT</p>

@@ -19,9 +19,9 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 
 ## 视觉方向 / Visual Direction
 
-网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育与 GPA 组成三联信号板；项目以“多图工作记录 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。媒体区采用用户控制的胶片式导航，支持触控滑动、方向键与 Home/End，不会自动翻页。页面框架在大屏上延展到接近视口边缘，项目画面与信号面板随屏幕同步放大，正文保持适合阅读的行长。人物使用低细节简笔插画识别卡，联系区以五轴工作画像雷达作越界背景。
+网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育与 GPA 组成三联信号板；项目以“多图工作记录 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。媒体区采用用户控制的胶片式导航，支持触控滑动、方向键与 Home/End，不会自动翻页。页面框架在大屏上延展到接近视口边缘，项目画面与信号面板随屏幕同步放大，正文保持适合阅读的行长。人物使用带低清信号纹理的简笔插画识别卡；联系区使用圆形项目状态雷达，四个方位对应产品、开发、评测和研究，半径对应原型、可用版本和已发布。
 
-The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. Each project uses a user-controlled filmstrip with touch swiping and keyboard navigation, without autoplay. The frame expands toward the viewport edges on large displays, while project media and signal panels scale up without stretching body copy into long lines. A low-detail line portrait keeps the identity card calm, and a five-axis working-profile radar extends beyond the contact frame.
+The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. Each project uses a user-controlled filmstrip with touch swiping and keyboard navigation, without autoplay. The frame expands toward the viewport edges on large displays, while project media and signal panels scale up without stretching body copy into long lines. A low-detail line portrait carries a lo-fi signal layer. The contact section uses a circular project-status scope: direction maps product, build, evaluation, and research, while distance maps prototype, working, and shipped stages.
 
 ## 本地预览 / Local Preview
 

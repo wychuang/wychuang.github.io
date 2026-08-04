@@ -133,6 +133,11 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(html, /class="portrait-registration"/);
   assert.match(html, /assets\/profile-illustrated\.webp/);
   assert.match(css, /@keyframes portrait-scan/);
+  assert.match(css, /@keyframes portrait-raster-slip/);
+  assert.match(css, /@keyframes portrait-raster-tear/);
+  const scannerRule = css.match(/\.portrait-scanner\s*\{([^}]*)\}/s)?.[1] ?? "";
+  assert.match(scannerRule, /animation:\s*portrait-scan[^;]*infinite/);
+  assert.doesNotMatch(scannerRule, /alternate/, "portrait scanner must travel downward in one direction");
   assert.match(css, /@keyframes portrait-float/);
   assert.match(css, /@keyframes portrait-breathe/);
   assert.match(css, /@keyframes color-block-drift/);
@@ -154,11 +159,17 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
 
 test("contact section includes a meaningful motion-safe background radar", () => {
   assert.match(html, /class="contact-radar"/);
-  for (const label of ["EVIDENCE", "PRODUCT", "DESIGN", "SYSTEMS", "RESEARCH"]) {
-    assert.ok(visibleText.includes(label), `missing radar axis: ${label}`);
+  assert.match(html, /class="contact-radar-scope"/);
+  assert.equal((html.match(/class="contact-radar-blip contact-radar-blip-/g) ?? []).length, 4);
+  for (const label of ["PRODUCT", "BUILD", "EVALUATION", "RESEARCH", "PROTOTYPE", "WORKING", "SHIPPED"]) {
+    assert.ok(visibleText.includes(label), `missing radar meaning: ${label}`);
+  }
+  for (const project of ["MODEL RADAR", "LIGHTLOOM", "SEARCH EVAL", "PUBMED RAG"]) {
+    assert.ok(visibleText.includes(project), `missing radar project signal: ${project}`);
   }
   assert.match(css, /@keyframes contact-radar-sweep/);
-  assert.match(css, /\.contact-radar-profile/);
+  assert.match(css, /@keyframes contact-radar-ping/);
+  assert.doesNotMatch(`${html}\n${css}`, /contact-radar-profile/);
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.contact-radar-sweep/);
   assert.match(css, /@media print[\s\S]*\.contact-radar/);
 });
