@@ -1,0 +1,15 @@
+{
+  "name": "wychuang-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/dev-server.mjs",
+    "test": "node --test",
+    "check": "node --check app.js && node --check scripts/dev-server.mjs && node --check scripts/build-site.mjs && node --test",
+    "build": "node scripts/build-site.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
