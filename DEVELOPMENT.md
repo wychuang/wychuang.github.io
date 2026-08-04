@@ -6,14 +6,14 @@
 
 - `index.html`：语义结构、公开履历与项目内容。
 - `styles.css`：Model Radar 衍生视觉、响应式布局、动效与打印样式。
-- `app.js`：滚动显现、导航状态和打印入口。
-- `assets/`：点阵头像与经过公开边界检查的项目截图。
+- `app.js`：中英文本、系统语言识别、明暗主题状态、滚动显现、导航状态和打印入口。
+- `assets/`：点阵头像、两校官网校徽与经过公开边界检查的项目截图。
 - `tests/site.test.mjs`：内容、锚点、链接与无障碍防线。
 - `scripts/dev-server.mjs`：本地静态服务器。
 - `scripts/build-site.mjs`：生成只含公开网页资源的 `dist/`。
 - `.github/workflows/pages.yml`：测试与 GitHub Pages 发布。
 
-This is a dependency-free static site. HTML owns the content and semantics, CSS owns the visual system, compact portrait radar, and responsive behavior, and JavaScript adds progressive enhancement for navigation, reveals, and printing.
+This is a dependency-free static site. HTML owns the Chinese fallback content and semantics, CSS owns both themes, the compact portrait radar, and responsive behavior, and JavaScript adds bilingual copy, preference persistence, navigation, reveals, and printing.
 
 ## Commands / 命令
 
@@ -48,7 +48,11 @@ npm run build
 - 避免通用 SaaS 卡片墙、紫色渐变和无目的装饰。
 - 动效承担进入、扫描和状态提示功能，并尊重 `prefers-reduced-motion`。
 - 点阵头像来自站点所有者提供的本人照片，保持小尺寸，仅作为首屏识别符。
-- 雷达扫描使用 CSS 动画；减弱动效模式停止扫描，无 JavaScript 时头像仍然可见。
+- 雷达头像使用弱底图与显影层；CSS 扫描扇区经过时局部变亮，随后渐隐。减弱动效模式停止扫描，无 JavaScript 时头像仍然可见。
+- 头像保持正面均匀光照，避免大块面部阴影；扫显效果由 CSS 蒙版承担，不写入图片素材。
+- 首次访问根据 `prefers-color-scheme` 和浏览器语言选择主题与中英文；手动选择写入 `localStorage`，后续访问继续沿用。
+- 中文是 HTML 内的无脚本回退。每个 `data-i18n`、`data-i18n-aria` 和 `data-i18n-alt` 键必须同时提供中英文内容。
+- 浙江大学校徽取自[浙江大学校标规范页](https://www.zju.edu.cn/xb/list.htm)，清华大学校徽取自[清华大学视觉形象识别系统](https://vi.tsinghua.edu.cn/gk/xxbz/xh.htm)。保留官网配色和比例，只允许清理画布留白与等比缩放。
 - 项目图片必须来自公开产品、合成示例或已脱敏工作稿；功能重构图需明确标注，不能冒充真实截图。
 - 修改桌面布局时同时检查 780px 与 480px 断点、键盘焦点和打印样式。
 - 标题字体需保留 macOS、iOS、Android 和 Windows 的后备字体；发布前检查 320、375、390、768 和 1440px 宽度没有横向溢出。
@@ -58,7 +62,11 @@ npm run build
 - Avoid generic SaaS card grids and decorative effects without an information purpose.
 - Motion should support entry, scanning, or status, with reduced-motion support.
 - Keep the portrait radar compact and use the owner-approved dot-matrix likeness.
-- Use CSS for the radar sweep, stop it under reduced motion, and keep the portrait visible without JavaScript.
+- Layer a dim base portrait under a CSS-masked reveal sweep, stop the scan under reduced motion, and keep the portrait visible without JavaScript.
+- Keep facial lighting even and calm; the scan effect belongs to CSS rather than the portrait asset.
+- Follow system color and browser-language preferences on first visit, then persist explicit choices in `localStorage`.
+- Keep Chinese as the no-script HTML fallback and provide both languages for every translation hook.
+- Preserve the official colors and proportions of the ZJU and Tsinghua emblems; only trim blank canvas and scale proportionally.
 - Check desktop, 780px, 480px, keyboard focus, and print output after layout changes.
 - Preserve cross-platform font fallbacks and verify no horizontal overflow at 320, 375, 390, 768, and 1440px.
 - Regenerate `og-card.png` from a 1200×630 hero viewport after major hero changes.

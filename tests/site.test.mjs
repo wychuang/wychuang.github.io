@@ -14,7 +14,7 @@ test("page has the expected identity and selected work", () => {
     "浙江大学",
     "生物医学工程",
     "工业设计",
-    "3.8 / 5.0",
+    "3.8/4.0",
     "清华大学 MAP 应用心理硕士",
     "Model Radar",
     "Lightloom / 灵光集",
@@ -56,16 +56,48 @@ test("content remains visible without JavaScript and social metadata is complete
   assert.match(html, /property="og:image"/);
   assert.match(html, /name="twitter:image"/);
   assert.ok((await stat(new URL("og-card.png", projectRoot))).size > 10_000);
-  for (const asset of ["profile-dotmatrix.png", "model-radar-screen.png", "lightloom-agent-screen.png", "search-eval-loop.png"]) {
+  for (const asset of ["profile-dotmatrix.png", "zju-emblem.png", "tsinghua-emblem.jpg", "model-radar-screen.png", "lightloom-agent-screen.png", "search-eval-loop.png"]) {
     assert.ok((await stat(new URL(`assets/${asset}`, projectRoot))).size > 10_000, `invalid asset: ${asset}`);
+  }
+});
+
+test("theme and language controls follow system preferences and support manual overrides", () => {
+  assert.match(html, /id="theme-toggle"/);
+  assert.match(html, /id="language-toggle"/);
+  assert.match(html, /portfolio-theme/);
+  assert.match(html, /portfolio-language/);
+  assert.match(html, /navigator\.language/);
+  assert.match(html, /prefers-color-scheme: light/);
+  assert.match(css, /html\[data-theme="light"\]/);
+  assert.match(css, /\.js-enabled \.header-toggle\s*{\s*display:\s*grid;/);
+  assert.match(script, /const translations =/);
+  assert.match(script, /applyTheme/);
+  assert.match(script, /applyLanguage/);
+  assert.match(script, /portfolio-theme/);
+  assert.match(script, /portfolio-language/);
+  assert.match(script, /aria-current/);
+});
+
+test("every translation hook has Chinese and English copy", () => {
+  const keys = [
+    ...html.matchAll(/data-i18n(?:-aria|-alt)?="([^"]+)"/g)
+  ].map((match) => match[1]);
+
+  for (const key of new Set(keys)) {
+    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const occurrences = script.match(new RegExp(`"${escaped}"\\s*:`, "g")) ?? [];
+    assert.ok(occurrences.length >= 2, `missing bilingual copy for: ${key}`);
   }
 });
 
 test("portrait radar stays compact and motion-aware", () => {
   assert.match(html, /class="profile-radar-screen"/);
+  assert.match(html, /class="profile-reveal"/);
   assert.match(html, /class="profile-sweep"/);
   assert.match(html, /assets\/profile-dotmatrix\.png/);
   assert.match(css, /@keyframes radar-sweep/);
+  assert.match(css, /@keyframes radar-counter-sweep/);
+  assert.match(css, /mask-image:\s*conic-gradient/);
   assert.match(css, /\.profile-radar\s*\{[^}]*width:\s*224px/s);
   assert.doesNotMatch(html, /<canvas/);
 });
@@ -78,5 +110,5 @@ test("site contains no unfinished placeholders or empty links", () => {
   assert.doesNotMatch(`${html}\n${css}\n${script}`, /\b(?:TODO|FIXME|PLACEHOLDER)\b/i);
   assert.doesNotMatch(html, /href="#"/);
   const contrastCliche = new RegExp(["不", "是", "\\s*", "而", "是"].join(""));
-  assert.doesNotMatch(html, contrastCliche);
+  assert.doesNotMatch(`${html}\n${script}`, contrastCliche);
 });

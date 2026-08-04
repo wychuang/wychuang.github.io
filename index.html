@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#10110e">
-    <meta name="color-scheme" content="dark">
+    <meta name="color-scheme" content="dark light">
     <meta name="description" content="王逸尘的个人网站：浙江大学生物医学工程本科、工业设计辅修，关注 AI 产品、模型评测与人机交互。">
     <meta name="author" content="王逸尘 / Yichen Wang">
     <meta property="og:type" content="website">
@@ -20,7 +20,24 @@
     <title>王逸尘 · Yichen Wang｜个人网站</title>
     <link rel="canonical" href="https://wychuang.github.io/">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <script>document.documentElement.classList.add("js-enabled");</script>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        root.classList.add("js-enabled");
+        try {
+          const storedTheme = localStorage.getItem("portfolio-theme");
+          const storedLanguage = localStorage.getItem("portfolio-language");
+          const theme = storedTheme || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+          const language = storedLanguage || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en");
+          root.dataset.theme = theme;
+          root.dataset.language = language;
+          root.lang = language === "zh" ? "zh-CN" : "en";
+        } catch {
+          root.dataset.theme = "dark";
+          root.dataset.language = "zh";
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="./styles.css">
     <script type="application/ld+json">
       {
@@ -40,36 +57,45 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <a class="skip-link" href="#main-content" data-i18n="skip.main">跳到主要内容</a>
 
-    <header class="site-header" aria-label="主导航">
-      <a class="brand" href="#about" aria-label="返回简介">
+    <header class="site-header" aria-label="主导航" data-i18n-aria="aria.navigation">
+      <a class="brand" href="#about" aria-label="返回简介" data-i18n-aria="aria.home">
         <span class="brand-mark">WY</span>
         <span class="brand-copy">YICHEN<br>WANG</span>
       </a>
-      <nav class="site-nav" aria-label="页面目录">
-        <a href="#about">简介</a>
-        <a href="#work">项目</a>
-        <a href="#experience">经历</a>
-        <a href="#contact">联系</a>
+      <nav class="site-nav" aria-label="页面目录" data-i18n-aria="aria.toc">
+        <a href="#about" data-i18n="nav.about">简介</a>
+        <a href="#work" data-i18n="nav.work">项目</a>
+        <a href="#experience" data-i18n="nav.experience">经历</a>
+        <a href="#contact" data-i18n="nav.contact">联系</a>
       </nav>
-      <div class="header-signal" aria-label="求职状态">
-        <i aria-hidden="true"></i>
-        <span>OPEN TO WORK</span>
+      <div class="header-tools">
+        <div class="header-signal" aria-label="求职状态" data-i18n-aria="aria.availability">
+          <i aria-hidden="true"></i>
+          <span>OPEN TO WORK</span>
+        </div>
+        <button id="theme-toggle" class="header-toggle theme-toggle" type="button" aria-label="切换到浅色模式" title="切换到浅色模式">
+          <span aria-hidden="true">◐</span><b>白</b>
+        </button>
+        <button id="language-toggle" class="header-toggle language-toggle" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
       </div>
     </header>
 
     <main id="main-content">
       <section id="about" class="hero section-frame" aria-labelledby="hero-title">
         <div class="hero-identity reveal">
-          <p class="eyebrow">AI 产品 · 模型评测 · 人机交互</p>
-          <h1 id="hero-title">王逸尘 <span>Yichen Wang</span></h1>
-          <p class="hero-role">我在做 AI 产品，也在研究人怎么使用它。</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">AI 产品 · 模型评测 · 人机交互</p>
+          <h1 id="hero-title"><span class="hero-name-primary" data-i18n="hero.namePrimary">王逸尘</span><span class="hero-name-secondary" data-i18n="hero.nameSecondary">Yichen Wang</span></h1>
+          <p class="hero-role" data-i18n="hero.role">我在做 AI 产品，也在研究人怎么使用它。</p>
         </div>
 
         <figure class="profile-radar reveal">
           <div class="profile-radar-screen">
-            <img src="./assets/profile-dotmatrix.png" width="600" height="600" alt="王逸尘的点阵头像">
+            <img class="profile-image profile-image-base" src="./assets/profile-dotmatrix.png" width="600" height="600" alt="王逸尘的点阵头像" data-i18n-alt="profile.alt">
+            <div class="profile-reveal" aria-hidden="true">
+              <img class="profile-image profile-image-bright" src="./assets/profile-dotmatrix.png" width="600" height="600" alt="">
+            </div>
             <div class="profile-sweep" aria-hidden="true"></div>
             <div class="profile-crosshair" aria-hidden="true"></div>
           </div>
@@ -77,147 +103,152 @@
         </figure>
 
         <div class="hero-summary reveal">
-          <p>我本科毕业于浙江大学生物医学工程专业，辅修工业设计，GPA 3.8/5.0。2026 年秋季拟进入清华大学心理与认知科学系 MAP 应用心理硕士项目。</p>
-          <p>医学工程让我习惯处理数据和证据，工业设计让我开始关心产品是否好懂、好用。现在，我把这两种训练用在 AI 产品、模型评测和人机交互上。</p>
+          <p data-i18n="hero.summaryEducation">我本科毕业于浙江大学生物医学工程专业，辅修工业设计，GPA 3.8/4.0。2026 年秋季拟进入清华大学心理与认知科学系 MAP 应用心理硕士项目。</p>
+          <p data-i18n="hero.summary">医学工程让我习惯处理数据和证据，工业设计让我开始关心产品是否好懂、好用。现在，我把这两种训练用在 AI 产品、模型评测和人机交互上。</p>
           <div class="hero-actions">
-            <a class="action action-primary" href="#work">看项目 <span aria-hidden="true">↓</span></a>
-            <a class="action" href="mailto:whaugslegend@163.com">联系我 <span aria-hidden="true">↗</span></a>
+            <a class="action action-primary" href="#work"><span data-i18n="hero.viewWork">看项目</span> <span aria-hidden="true">↓</span></a>
+            <a class="action" href="mailto:whaugslegend@163.com"><span data-i18n="hero.contact">联系我</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
-        <dl class="profile-facts reveal" aria-label="个人信息摘要">
-          <div>
-            <dt>本科</dt>
-            <dd>浙江大学</dd>
-          </div>
-          <div>
-            <dt>专业</dt>
-            <dd>生物医学工程</dd>
-          </div>
-          <div>
-            <dt>辅修</dt>
-            <dd>工业设计</dd>
-          </div>
-          <div>
-            <dt>GPA</dt>
-            <dd>3.8 / 5.0</dd>
-          </div>
-          <div class="profile-fact-wide">
-            <dt>下一阶段</dt>
-            <dd>清华大学 MAP 应用心理硕士 · 2026 级拟入学</dd>
-          </div>
-        </dl>
+        <div class="profile-facts reveal" role="list" aria-label="教育信息摘要" data-i18n-aria="aria.educationSummary">
+          <article class="school-fact" role="listitem">
+            <a class="school-emblem" href="https://www.zju.edu.cn/" target="_blank" rel="noreferrer" aria-label="浙江大学官网" data-i18n-aria="aria.zjuWebsite">
+              <img src="./assets/zju-emblem.png" width="318" height="253" alt="浙江大学校徽" data-i18n-alt="school.zjuEmblemAlt">
+            </a>
+            <div class="school-copy">
+              <p class="fact-label" data-i18n="school.undergraduate">本科 · 2021—2025</p>
+              <h2 data-i18n="school.zju">浙江大学</h2>
+              <p data-i18n="school.zjuDetail">生物医学工程 · 工业设计辅修</p>
+            </div>
+          </article>
+          <article class="gpa-fact" role="listitem">
+            <p class="fact-label">GPA</p>
+            <p class="gpa-score"><strong>3.8</strong><span>/ 4.0</span></p>
+            <p data-i18n="school.gpaNote">本科成绩</p>
+          </article>
+          <article class="school-fact" role="listitem">
+            <a class="school-emblem" href="https://www.tsinghua.edu.cn/" target="_blank" rel="noreferrer" aria-label="清华大学官网" data-i18n-aria="aria.tsinghuaWebsite">
+              <img src="./assets/tsinghua-emblem.jpg" width="520" height="520" alt="清华大学校徽" data-i18n-alt="school.tsinghuaEmblemAlt">
+            </a>
+            <div class="school-copy">
+              <p class="fact-label" data-i18n="school.next">下一阶段 · 2026</p>
+              <h2 data-i18n="school.tsinghua">清华大学</h2>
+              <p data-i18n="school.tsinghuaDetail">MAP 应用心理硕士 · 2026 级拟入学</p>
+            </div>
+          </article>
+        </div>
 
-        <p class="availability reveal"><span>求职状态</span> 2026.08.11 起 · 每周 5 天 · 可实习 6 个月以上 · 上海 / 北京 / 深圳 / 杭州</p>
+        <p class="availability reveal"><span data-i18n="availability.label">求职状态</span> <b data-i18n="availability.detail">2026.08.11 起 · 每周 5 天 · 可实习 6 个月以上 · 上海 / 北京 / 深圳 / 杭州</b></p>
       </section>
 
       <section id="work" class="work section-frame" aria-labelledby="work-title">
         <header class="section-intro reveal">
           <p class="section-number mono">01 / SELECTED WORK</p>
-          <h2 id="work-title">我做过的几个项目。</h2>
+          <h2 id="work-title" data-i18n="work.title">我做过的几个项目。</h2>
         </header>
 
         <article class="case-study reveal" aria-labelledby="project-model-radar">
           <div class="case-media">
-            <a href="https://wychuang.github.io/model-radar/" target="_blank" rel="noreferrer" aria-label="打开 Model Radar 在线站点">
-              <img src="./assets/model-radar-screen.png" width="1440" height="900" loading="lazy" alt="Model Radar 首页，展示世界模型雷达、更新时间、指标和模型排名">
+            <a href="https://wychuang.github.io/model-radar/" target="_blank" rel="noreferrer" aria-label="打开 Model Radar 在线站点" data-i18n-aria="aria.modelRadar">
+              <img src="./assets/model-radar-screen.png" width="1440" height="900" loading="lazy" alt="Model Radar 首页，展示世界模型雷达、更新时间、指标和模型排名" data-i18n-alt="project.radarAlt">
             </a>
-            <p class="media-caption">Model Radar 首页 · 2026</p>
+            <p class="media-caption" data-i18n="project.radarCaption">Model Radar 首页 · 2026</p>
           </div>
           <div class="case-copy">
             <div class="case-index mono">01 / PUBLIC DATA PRODUCT</div>
             <h3 id="project-model-radar">Model Radar</h3>
-            <p class="project-summary">一个跟踪主流 AI 模型更新的公开网站。</p>
+            <p class="project-summary" data-i18n="project.radarSummary">一个跟踪主流 AI 模型更新的公开网站。</p>
             <div class="case-story">
-              <p>为了确认各家模型最近更新了什么，我把厂商官网、发布页、文档和价格页整理到一个站点里。打开页面就能看到模型能力、发布时间和原始来源。</p>
-              <p>我独立完成了产品结构、视觉设计、前端、数据刷新和 GitHub Pages 发布。目前覆盖 12 家厂商、45 个发布节点，并用 13 项自动测试检查更新结果。</p>
+              <p data-i18n="project.radarStory1">为了确认各家模型最近更新了什么，我把厂商官网、发布页、文档和价格页整理到一个站点里。打开页面就能看到模型能力、发布时间和原始来源。</p>
+              <p data-i18n="project.radarStory2">我独立完成了产品结构、视觉设计、前端、数据刷新和 GitHub Pages 发布。目前覆盖 12 家厂商、45 个发布节点，并用 13 项自动测试检查更新结果。</p>
             </div>
             <dl class="case-facts">
-              <div><dt>我负责</dt><dd>产品 · 设计 · 前端 · 数据更新</dd></div>
-              <div><dt>规模</dt><dd>12 家厂商 · 45 个发布节点</dd></div>
+              <div><dt data-i18n="facts.role">我负责</dt><dd data-i18n="project.radarRole">产品 · 设计 · 前端 · 数据更新</dd></div>
+              <div><dt data-i18n="facts.scale">规模</dt><dd data-i18n="project.radarScale">12 家厂商 · 45 个发布节点</dd></div>
             </dl>
             <div class="case-links">
-              <a href="https://wychuang.github.io/model-radar/" target="_blank" rel="noreferrer">在线体验 ↗</a>
-              <a href="https://github.com/wychuang/model-radar" target="_blank" rel="noreferrer">查看源码 ↗</a>
+              <a href="https://wychuang.github.io/model-radar/" target="_blank" rel="noreferrer" data-i18n="links.live">在线体验 ↗</a>
+              <a href="https://github.com/wychuang/model-radar" target="_blank" rel="noreferrer" data-i18n="links.source">查看源码 ↗</a>
             </div>
           </div>
         </article>
 
         <article class="case-study case-study-reverse reveal" aria-labelledby="project-lightloom">
           <div class="case-media">
-            <a href="https://github.com/wychuang/lightloom-open" target="_blank" rel="noreferrer" aria-label="打开 Lightloom 公开项目页">
-              <img src="./assets/lightloom-agent-screen.png" width="1464" height="900" loading="lazy" alt="Lightloom 应用界面，左侧是原始记录，右侧是出处和 Agent 探索过程">
+            <a href="https://github.com/wychuang/lightloom-open" target="_blank" rel="noreferrer" aria-label="打开 Lightloom 公开项目页" data-i18n-aria="aria.lightloom">
+              <img src="./assets/lightloom-agent-screen.png" width="1464" height="900" loading="lazy" alt="Lightloom 应用界面，左侧是原始记录，右侧是出处和 Agent 探索过程" data-i18n-alt="project.lightloomAlt">
             </a>
             <p class="media-caption">Lightloom 0.8.5 · Windows</p>
           </div>
           <div class="case-copy">
             <div class="case-index mono">02 / LOCAL-FIRST AI APP</div>
             <h3 id="project-lightloom">Lightloom / 灵光集</h3>
-            <p class="project-summary">一个把散落资料留在本地，再交给 Agent 整理的 Windows 工具。</p>
+            <p class="project-summary" data-i18n="project.lightloomSummary">一个把散落资料留在本地，再交给 Agent 整理的 Windows 工具。</p>
             <div class="case-story">
-              <p>我的文字、网页、截图、文件和录音分散在很多地方。我希望它们先作为普通文件保存下来，需要时再让 AI 搜索、联系和批注。</p>
-              <p>Lightloom 会把原件和 AI 生成的内容分开保存。Agent 可以并行探索资料，用户随时能查看来源、进度和中间结果。目前已经做到 0.8.5 版。</p>
+              <p data-i18n="project.lightloomStory1">我的文字、网页、截图、文件和录音分散在很多地方。我希望它们先作为普通文件保存下来，需要时再让 AI 搜索、联系和批注。</p>
+              <p data-i18n="project.lightloomStory2">Lightloom 会把原件和 AI 生成的内容分开保存。Agent 可以并行探索资料，用户随时能查看来源、进度和中间结果。目前已经做到 0.8.5 版。</p>
             </div>
             <dl class="case-facts">
-              <div><dt>我负责</dt><dd>产品 · 交互 · 桌面端开发</dd></div>
-              <div><dt>已有功能</dt><dd>多媒体记录 · 并行 Agent · 过程检查点</dd></div>
+              <div><dt data-i18n="facts.role">我负责</dt><dd data-i18n="project.lightloomRole">产品 · 交互 · 桌面端开发</dd></div>
+              <div><dt data-i18n="facts.features">已有功能</dt><dd data-i18n="project.lightloomFeatures">多媒体记录 · 并行 Agent · 过程检查点</dd></div>
             </dl>
             <div class="case-links">
-              <a href="https://github.com/wychuang/lightloom-open" target="_blank" rel="noreferrer">查看项目 ↗</a>
+              <a href="https://github.com/wychuang/lightloom-open" target="_blank" rel="noreferrer" data-i18n="links.project">查看项目 ↗</a>
             </div>
           </div>
         </article>
 
         <article class="case-study reveal" aria-labelledby="project-eval">
           <div class="case-media case-media-paper">
-            <img src="./assets/search-eval-loop.png" width="1200" height="760" loading="lazy" alt="AI 搜索回答评测样本，展示回答、复审、问题归因和优选回答的整理过程">
-            <p class="media-caption">搜索回答评测工作样本</p>
+            <img src="./assets/search-eval-loop.png" width="1200" height="760" loading="lazy" alt="AI 搜索回答评测样本，展示回答、复审、问题归因和优选回答的整理过程" data-i18n-alt="project.evalAlt">
+            <p class="media-caption" data-i18n="project.evalCaption">搜索回答评测工作样本</p>
           </div>
           <div class="case-copy">
             <div class="case-index mono">03 / MODEL EVALUATION</div>
-            <h3 id="project-eval"><span>AI 搜索回答</span><span>质量评测</span></h3>
-            <p class="project-summary">我用真实回答检查旧信息、弱引用和答非所问。</p>
+            <h3 id="project-eval"><span data-i18n="project.evalTitle1">AI 搜索回答</span><span data-i18n="project.evalTitle2">质量评测</span></h3>
+            <p class="project-summary" data-i18n="project.evalSummary">我用真实回答检查旧信息、弱引用和答非所问。</p>
             <div class="case-story">
-              <p>有些搜索回答读起来很完整，点开引用后却会发现信息已经过时，或者来源根本支撑不了结论。我把这些问题拆成任务完成、来源质量、时间范围、证据对应和风险边界几个检查项。</p>
-              <p>目前整理了 17 个候选案例，其中 8 个完成核验，并做成 11 组偏好对。一条使用旧模型名和过时参数的回答只得到 3/13 分，我随后根据官方页面补齐证据并重写了答案。</p>
+              <p data-i18n="project.evalStory1">有些搜索回答读起来很完整，点开引用后却会发现信息已经过时，或者来源根本支撑不了结论。我把这些问题拆成任务完成、来源质量、时间范围、证据对应和风险边界几个检查项。</p>
+              <p data-i18n="project.evalStory2">目前整理了 17 个候选案例，其中 8 个完成核验，并做成 11 组偏好对。一条使用旧模型名和过时参数的回答只得到 3/13 分，我随后根据官方页面补齐证据并重写了答案。</p>
             </div>
             <dl class="case-facts">
-              <div><dt>样本</dt><dd>17 个案例 · 11 组偏好对</dd></div>
-              <div><dt>我负责</dt><dd>采集 · 评分 · 问题归因 · 答案改写</dd></div>
+              <div><dt data-i18n="facts.samples">样本</dt><dd data-i18n="project.evalSamples">17 个案例 · 11 组偏好对</dd></div>
+              <div><dt data-i18n="facts.role">我负责</dt><dd data-i18n="project.evalRole">采集 · 评分 · 问题归因 · 答案改写</dd></div>
             </dl>
           </div>
         </article>
 
         <article class="case-study case-study-reverse reveal" aria-labelledby="project-rag">
           <figure class="case-media prototype-media">
-            <div class="prototype-flow" aria-label="智能营养师功能流程示意">
+            <div class="prototype-flow" aria-label="智能营养师功能流程示意" data-i18n-aria="aria.ragFlow">
               <div class="phone-shell">
                 <div class="phone-top mono">TODAY / DIET LOG</div>
                 <div class="meal-photo" aria-hidden="true"><span></span><i></i><b></b></div>
                 <div class="nutrition-bars" aria-hidden="true"><i></i><i></i><i></i></div>
-                <div class="phone-note">记录饮食，关联个人档案。</div>
+                <div class="phone-note" data-i18n="project.ragPhoneNote">记录饮食，关联个人档案。</div>
               </div>
               <div class="flow-bridge mono" aria-hidden="true">IMAGE → PROFILE → QUERY</div>
               <div class="evidence-answer">
                 <p class="mono">PUBMED / ANSWER</p>
-                <h4>从日常记录出发，<br>再查相关文献。</h4>
+                <h4><span data-i18n="project.ragFlow1">从日常记录出发，</span><br><span data-i18n="project.ragFlow2">再查相关文献。</span></h4>
                 <div class="answer-lines" aria-hidden="true"><i></i><i></i><i></i></div>
                 <div class="source-chip">SOURCE · PUBMED</div>
               </div>
             </div>
-            <figcaption class="media-caption">毕业设计功能流程</figcaption>
+            <figcaption class="media-caption" data-i18n="project.ragCaption">毕业设计功能流程</figcaption>
           </figure>
           <div class="case-copy">
             <div class="case-index mono">04 / GRADUATION PROJECT</div>
             <h3 id="project-rag">PubMed + RAG 智能营养师</h3>
-            <p class="project-summary">本科毕业设计：用微信小程序记录饮食，并把健康问答连接到 PubMed 文献。</p>
+            <p class="project-summary" data-i18n="project.ragSummary">本科毕业设计：用微信小程序记录饮食，并把健康问答连接到 PubMed 文献。</p>
             <div class="case-story">
-              <p>用户可以拍照记录一餐，系统识别食物并结合个人档案给出反馈。遇到健康问题时，回答会先检索 PubMed 文献，再组织成便于理解的说明。</p>
-              <p>我完成了微信小程序前端、Flask 后端、SQLite 数据库和论文，把食物识别、个人档案、饮食反馈与文献问答串成了一个可操作的功能原型。</p>
+              <p data-i18n="project.ragStory1">用户可以拍照记录一餐，系统识别食物并结合个人档案给出反馈。遇到健康问题时，回答会先检索 PubMed 文献，再组织成便于理解的说明。</p>
+              <p data-i18n="project.ragStory2">我完成了微信小程序前端、Flask 后端、SQLite 数据库和论文，把食物识别、个人档案、饮食反馈与文献问答串成了一个可操作的功能原型。</p>
             </div>
             <dl class="case-facts">
-              <div><dt>功能</dt><dd>饮食记录 · 食物识别 · 健康档案 · 文献问答</dd></div>
-              <div><dt>技术</dt><dd>微信小程序 · Flask · SQLite · RAG</dd></div>
+              <div><dt data-i18n="facts.features">功能</dt><dd data-i18n="project.ragFeatures">饮食记录 · 食物识别 · 健康档案 · 文献问答</dd></div>
+              <div><dt data-i18n="facts.tech">技术</dt><dd data-i18n="project.ragTech">微信小程序 · Flask · SQLite · RAG</dd></div>
             </dl>
           </div>
         </article>
@@ -225,12 +256,12 @@
         <aside class="side-projects reveal" aria-labelledby="side-title">
           <div>
             <p class="section-number mono">SMALL BUILDS</p>
-            <h3 id="side-title">其他小项目</h3>
+            <h3 id="side-title" data-i18n="side.title">其他小项目</h3>
           </div>
           <div class="side-links">
-            <a href="https://wychuang.github.io/qian-jiu-shi-qian/" target="_blank" rel="noreferrer"><strong>钱就是钱</strong><span>用金额尺帮助自己理解消费 ↗</span></a>
-            <a href="https://wychuang.github.io/gaokao-laptop-guide/" target="_blank" rel="noreferrer"><strong>高考后游戏本选购</strong><span>把配置参数整理成选择路径 ↗</span></a>
-            <a href="https://github.com/wychuang/min_scifi" target="_blank" rel="noreferrer"><strong>独立研究者工坊</strong><span>整理研究过程的本地工作台 ↗</span></a>
+            <a href="https://wychuang.github.io/qian-jiu-shi-qian/" target="_blank" rel="noreferrer"><strong data-i18n="side.moneyTitle">钱就是钱</strong><span data-i18n="side.moneyDetail">用金额尺帮助自己理解消费 ↗</span></a>
+            <a href="https://wychuang.github.io/gaokao-laptop-guide/" target="_blank" rel="noreferrer"><strong data-i18n="side.laptopTitle">高考后游戏本选购</strong><span data-i18n="side.laptopDetail">把配置参数整理成选择路径 ↗</span></a>
+            <a href="https://github.com/wychuang/min_scifi" target="_blank" rel="noreferrer"><strong data-i18n="side.researchTitle">独立研究者工坊</strong><span data-i18n="side.researchDetail">整理研究过程的本地工作台 ↗</span></a>
           </div>
         </aside>
       </section>
@@ -238,47 +269,63 @@
       <section id="experience" class="experience section-frame" aria-labelledby="experience-title">
         <header class="section-intro reveal">
           <p class="section-number mono">02 / EXPERIENCE</p>
-          <h2 id="experience-title">经历</h2>
-          <p class="experience-lead">我最早接触的是医学信号和图像，后来在工业设计课里开始关心工具怎么被人理解。做毕业设计时，我第一次把 RAG 接进一个完整产品；进入认证检测工作后，核对标准、测试记录和版本也成了日常习惯。</p>
+          <h2 id="experience-title" data-i18n="experience.title">教育与经历</h2>
+          <p class="experience-lead" data-i18n="experience.lead">我的路径横跨医学工程、工业设计和 AI 产品。这里先列教育背景，再列几段真正影响我工作方法的实践。</p>
         </header>
 
-        <div class="experience-list">
-          <article class="experience-row reveal">
-            <time>2026.09—2028</time>
-            <div>
-              <h3>清华大学心理与认知科学系</h3>
-              <p>MAP 应用心理硕士 · 2026 级拟入学</p>
-            </div>
-          </article>
-          <article class="experience-row reveal">
-            <time>2025—现在</time>
-            <div>
-              <h3>功能安全与认证检测</h3>
-              <p>核对产品规格、测试记录、软件版本和技术文档，也参与中英文报告整理。</p>
-            </div>
-          </article>
-          <article class="experience-row reveal">
-            <time>2021.09—2025.06</time>
-            <div>
-              <h3>浙江大学</h3>
-              <p>生物医学工程本科 · 工业设计辅修 · GPA 3.8/5.0</p>
-            </div>
-          </article>
-          <article class="experience-row reveal">
-            <time>2024—2025</time>
-            <div>
-              <h3>PubMed + RAG 智能营养师</h3>
-              <p>本科毕业设计，从饮食记录做到循证健康问答。</p>
-            </div>
-          </article>
+        <div class="experience-grid">
+          <section class="experience-group reveal" aria-labelledby="education-group-title">
+            <h3 id="education-group-title" class="experience-group-title mono" data-i18n="experience.education">教育 / EDUCATION</h3>
+            <article class="education-card">
+              <img src="./assets/zju-emblem.png" width="318" height="253" alt="" aria-hidden="true">
+              <div>
+                <time>2021.09—2025.06</time>
+                <h4 data-i18n="school.zju">浙江大学</h4>
+                <p data-i18n="experience.zjuDetail">生物医学工程本科 · 工业设计辅修 · GPA 3.8/4.0</p>
+              </div>
+            </article>
+            <article class="education-card">
+              <img src="./assets/tsinghua-emblem.jpg" width="520" height="520" alt="" aria-hidden="true">
+              <div>
+                <time>2026.09—2028</time>
+                <h4 data-i18n="experience.tsinghuaSchool">清华大学心理与认知科学系</h4>
+                <p data-i18n="experience.tsinghuaDetail">MAP 应用心理硕士 · 2026 级拟入学</p>
+              </div>
+            </article>
+          </section>
+
+          <section class="experience-group reveal" aria-labelledby="practice-group-title">
+            <h3 id="practice-group-title" class="experience-group-title mono" data-i18n="experience.practice">实践 / PRACTICE</h3>
+            <article class="experience-row">
+              <time data-i18n="experience.presentDate">2025—现在</time>
+              <div>
+                <h4 data-i18n="experience.safetyTitle">功能安全与认证检测</h4>
+                <p data-i18n="experience.safetyDetail">围绕产品规格、测试记录、软件版本和技术文档做交叉核对，也参与中英文报告整理。这段工作让我更在意证据能不能经得起复查。</p>
+              </div>
+            </article>
+            <article class="experience-row">
+              <time>2024—2025</time>
+              <div>
+                <h4 data-i18n="experience.thesisTitle">本科毕业设计</h4>
+                <p data-i18n="experience.thesisDetail">独立完成 PubMed + RAG 智能营养师，从微信小程序、后端与数据库，一直做到论文和功能原型。</p>
+              </div>
+            </article>
+            <article class="experience-row">
+              <time>2023.03—2023.12</time>
+              <div>
+                <h4 data-i18n="experience.srtpTitle">浙江大学 SRTP</h4>
+                <p data-i18n="experience.srtpDetail">参与基于 Transformer / Conformer 的唇语识别研究，接触从数据处理、模型训练到结果比较的一整套研究过程。</p>
+              </div>
+            </article>
+          </section>
         </div>
       </section>
 
       <section id="contact" class="contact section-frame" aria-labelledby="contact-title">
         <div class="contact-copy reveal">
           <p class="section-number mono">03 / CONTACT</p>
-          <h2 id="contact-title">联系我</h2>
-          <p>我正在寻找 AI 产品、模型评测与人机交互方向的实习和项目机会。</p>
+          <h2 id="contact-title" data-i18n="contact.title">联系我</h2>
+          <p data-i18n="contact.lead">我正在寻找 AI 产品、模型评测与人机交互方向的实习和项目机会。</p>
           <div class="contact-actions">
             <a class="contact-link" href="mailto:whaugslegend@163.com">
               <span class="mono">EMAIL</span>
@@ -291,14 +338,14 @@
               <i aria-hidden="true">↗</i>
             </a>
           </div>
-          <button id="print-resume" class="print-button" type="button">打印 / 存为 PDF <span aria-hidden="true">⌁</span></button>
+          <button id="print-resume" class="print-button" type="button"><span data-i18n="contact.print">打印 / 存为 PDF</span> <span aria-hidden="true">⌁</span></button>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <p>王逸尘 · Yichen Wang</p>
-      <p>AI 产品 · 模型评测 · 人机交互</p>
+      <p data-i18n="hero.eyebrow">AI 产品 · 模型评测 · 人机交互</p>
       <p>© <span id="current-year">2026</span></p>
     </footer>
 
