@@ -38,7 +38,12 @@ try {
       "/assets/zju-emblem.png",
       "/assets/tsinghua-emblem.jpg",
       "/assets/model-radar-screen.png",
+      "/assets/model-radar-map.png",
+      "/assets/model-radar-detail.png",
+      "/assets/model-radar-sources.png",
       "/assets/lightloom-agent-screen.png",
+      "/assets/lightloom-vault-screen.png",
+      "/assets/lightloom-relations-screen.png",
       "/assets/search-eval-loop.png"
     )
 

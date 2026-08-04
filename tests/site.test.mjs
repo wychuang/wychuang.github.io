@@ -65,9 +65,35 @@ test("content remains visible without JavaScript and social metadata is complete
   assert.match(html, /name="twitter:image"/);
   assert.ok((await stat(new URL("og-card.png", projectRoot))).size > 10_000);
   assert.match(devServer, /"\.webp":\s*"image\/webp"/);
-  for (const asset of ["profile-illustrated.webp", "zju-emblem.png", "tsinghua-emblem.jpg", "model-radar-screen.png", "lightloom-agent-screen.png", "search-eval-loop.png"]) {
+  for (const asset of [
+    "profile-illustrated.webp",
+    "zju-emblem.png",
+    "tsinghua-emblem.jpg",
+    "model-radar-screen.png",
+    "model-radar-map.png",
+    "model-radar-detail.png",
+    "model-radar-sources.png",
+    "lightloom-agent-screen.png",
+    "lightloom-vault-screen.png",
+    "lightloom-relations-screen.png",
+    "search-eval-loop.png"
+  ]) {
     assert.ok((await stat(new URL(`assets/${asset}`, projectRoot))).size > 10_000, `invalid asset: ${asset}`);
   }
+});
+
+test("project media uses accessible user-controlled galleries", () => {
+  assert.equal((html.match(/class="media-gallery(?:\s|\")/g) ?? []).length, 4);
+  assert.equal((html.match(/data-gallery-slide/g) ?? []).length, 13);
+  assert.equal((html.match(/class="gallery-track" tabindex="0"/g) ?? []).length, 4);
+  assert.match(html, /data-gallery-prev/);
+  assert.match(html, /data-gallery-next/);
+  assert.match(css, /scroll-snap-type:\s*x mandatory/);
+  assert.match(css, /@media \(hover: hover\) and \(pointer: fine\)/);
+  assert.match(script, /\["ArrowLeft", "ArrowRight", "Home", "End"\]/);
+  assert.match(script, /ResizeObserver/);
+  assert.match(script, /visibilitychange/);
+  assert.doesNotMatch(script, /setInterval\(/);
 });
 
 test("theme defaults to dark while language follows the browser and both support manual overrides", () => {
@@ -145,6 +171,8 @@ test("wide-screen layout expands while retaining a dedicated large-display break
 
 test("public copy excludes production notes and review language", () => {
   assert.doesNotMatch(visibleText, /BOUNDARY|VISUAL NOTE|REAL PRODUCT SCREEN|REAL APP SCREEN|REAL WORKING ARTIFACT|FLOW RECONSTRUCTION|UI SNAPSHOT|CAPTURED/i);
+  assert.doesNotMatch(visibleText, /PMID\s*\d+/i, "prototype literature cards must not invent publication identifiers");
+  assert.ok(visibleText.includes("PROTOTYPE / PAPER 01"));
 });
 
 test("site contains no unfinished placeholders or empty links", () => {

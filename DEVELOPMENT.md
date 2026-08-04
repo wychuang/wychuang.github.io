@@ -6,14 +6,14 @@
 
 - `index.html`：语义结构、公开履历与项目内容。
 - `styles.css`：Model Radar 衍生视觉、响应式布局、动效与打印样式。
-- `app.js`：中英文本、系统语言识别、明暗主题状态、滚动显现、导航状态和打印入口。
-- `assets/`：简笔插画头像、两校官网校徽与经过公开边界检查的项目截图。
+- `app.js`：中英文本、系统语言识别、明暗主题状态、滚动显现、项目画廊、页面可见性状态、导航状态和打印入口。
+- `assets/`：简笔插画头像、两校官网校徽与经过公开边界检查的项目截图；同一项目的结果、细节与过程画面使用明确文件名区分。
 - `tests/site.test.mjs`：内容、锚点、链接与无障碍防线。
 - `scripts/dev-server.mjs`：本地静态服务器。
 - `scripts/build-site.mjs`：生成只含公开网页资源的 `dist/`。
 - `.github/workflows/pages.yml`：测试与 GitHub Pages 发布。
 
-This is a dependency-free static site. HTML owns the Chinese fallback content and semantics, CSS owns both themes, the compact editorial portrait card, and responsive behavior, and JavaScript adds bilingual copy, preference persistence, navigation, reveals, and printing.
+This is a dependency-free static site. HTML owns the Chinese fallback content and semantics, CSS owns both themes, the compact editorial portrait card, responsive behavior, and native scroll-snap media tracks. JavaScript adds bilingual copy, preference persistence, gallery controls, page-visibility pausing, navigation, reveals, and printing.
 
 ## Commands / 命令
 
@@ -47,6 +47,7 @@ npm run build
 - 继续使用 `--night`、`--paper`、`--acid`、`--hot`、`--sky` 这组 Model Radar 色彩变量。
 - 避免通用 SaaS 卡片墙、紫色渐变和无目的装饰。
 - 动效承担进入、扫描和状态提示功能，并尊重 `prefers-reduced-motion`。
+- 项目媒体默认使用原生横向滚动与 `scroll-snap`；增强控件支持按钮、方向键、Home/End 和触控滑动。禁止自动轮播，页面进入后台时暂停持续动效。
 - 色块承担页面结构：首屏教育信息使用纸色、酸绿和 DPSK 蓝三联板；项目使用整块酸绿、DPSK 蓝、珊瑚红和暖金说明面板；联系区使用纸色收束。色块之间用硬边与网格连接。
 - 章节标题使用 Model Radar 式 masthead：紧排巨型标题与小号等宽读数并置。项目说明和画面直接拼接，避免回到常规卡片与浮层。
 - 动效共用“落位—呼吸—扫描”的低幅度节奏；人物漂浮不超过 4px，图像缩放不超过 1.018，色块位移不超过 7px。
@@ -66,6 +67,7 @@ npm run build
 - Preserve the Model Radar color variables and signal language.
 - Avoid generic SaaS card grids and decorative effects without an information purpose.
 - Motion should support entry, scanning, or status, with reduced-motion support.
+- Project media uses native horizontal scrolling and scroll snap, enhanced by buttons, Arrow keys, Home/End, and touch. Do not autoplay galleries, and pause continuous motion while the page is hidden.
 - Use color blocks as page structure: a paper, acid, and DPSK blue education strip; full acid, DPSK blue, coral, and warm amber project panels; and a paper contact close.
 - Build section mastheads from oversized compressed titles, compact mono readouts, hard borders, and directly joined media/copy panels.
 - Keep motion on one low-amplitude settle, breathe, and scan rhythm; portrait drift stays within 4px, image scale within 1.018, and color-block travel within 7px.

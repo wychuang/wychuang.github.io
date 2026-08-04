@@ -13,7 +13,13 @@ const translations = {
     "aria.tsinghuaWebsite": "清华大学官网",
     "aria.modelRadar": "打开 Model Radar 在线站点",
     "aria.lightloom": "打开 Lightloom 公开项目页",
+    "aria.radarGallery": "Model Radar 项目图片",
+    "aria.lightloomGallery": "Lightloom 项目图片",
+    "aria.evalGallery": "AI 搜索回答评测项目图片",
+    "aria.ragGallery": "智能营养师功能原型",
     "aria.ragFlow": "智能营养师功能流程示意",
+    "aria.ragMealPrototype": "饮食识别与个人档案功能原型",
+    "aria.ragEvidencePrototype": "PubMed 文献检索与回答功能原型",
     "profile.alt": "王逸尘的简笔插画头像",
     "nav.about": "简介",
     "nav.work": "项目",
@@ -40,20 +46,50 @@ const translations = {
     "availability.detail": "2026.08.11 起 · 每周 5 天 · 可实习 6 个月以上 · 北京优先 / 杭州可考虑",
     "work.title": "我做过的几个项目。",
     "project.radarAlt": "Model Radar 首页，展示世界模型雷达、更新时间、指标和模型排名",
-    "project.radarCaption": "Model Radar 首页 · 2026",
+    "project.radarCaption": "首页与当期快照 · 2026",
+    "project.radarMapAlt": "Model Radar 的能力雷达、彩色指标和模型排序",
+    "project.radarMapCaption": "能力雷达与模型排序",
+    "project.radarDetailAlt": "Model Radar 的模型能力详情与厂商发布节奏",
+    "project.radarDetailCaption": "当前信号与发布节奏",
+    "project.radarSourcesAlt": "Model Radar 汇总的十二家厂商官方来源",
+    "project.radarSourcesCaption": "十二家厂商的官方来源",
     "project.radarSummary": "一个跟踪主流 AI 模型更新的公开网站。",
     "project.radarStory1": "为了确认各家模型最近更新了什么，我把厂商官网、发布页、文档和价格页整理到一个站点里。打开页面就能看到模型能力、发布时间和原始来源。",
     "project.radarStory2": "我独立完成了产品结构、视觉设计、前端、数据刷新和 GitHub Pages 发布。目前覆盖 12 家厂商、45 个发布节点，并用 13 项自动测试检查更新结果。",
     "project.radarRole": "产品 · 设计 · 前端 · 数据更新",
     "project.radarScale": "12 家厂商 · 45 个发布节点",
     "project.lightloomAlt": "Lightloom 应用界面，左侧是原始记录，右侧是出处和 Agent 探索过程",
+    "project.lightloomAgentCaption": "Idea 原文与 Agent 探索 · 0.8.5",
+    "project.lightloomVaultAlt": "Lightloom 本地仓库的文件树、Markdown 编辑器和阅读视图",
+    "project.lightloomVaultCaption": "本地仓库与分栏编辑",
+    "project.lightloomRelationsAlt": "Lightloom 将多条 Idea 与 Agent 发现整理成关系图",
+    "project.lightloomRelationsCaption": "跨记录联系视图",
     "project.lightloomSummary": "一个把散落资料留在本地，再交给 Agent 整理的 Windows 工具。",
     "project.lightloomStory1": "我的文字、网页、截图、文件和录音分散在很多地方。我希望它们先作为普通文件保存下来，需要时再让 AI 搜索、联系和批注。",
     "project.lightloomStory2": "Lightloom 会把原件和 AI 生成的内容分开保存。Agent 可以并行探索资料，用户随时能查看来源、进度和中间结果。目前已经做到 0.8.5 版。",
     "project.lightloomRole": "产品 · 交互 · 桌面端开发",
     "project.lightloomFeatures": "多媒体记录 · 并行 Agent · 过程检查点",
     "project.evalAlt": "AI 搜索回答评测样本，展示回答、复审、问题归因和优选回答的整理过程",
-    "project.evalCaption": "搜索回答评测工作样本",
+    "project.evalCaption": "从真实输出到优选回答",
+    "project.evalWorkflowAlt": "AI 搜索回答评测的六步核验流程",
+    "project.evalWorkflowCaption": "六步核验流程",
+    "project.evalWorkflowKicker": "核验链路 / 06",
+    "project.evalWorkflowTitle": "一条回答怎样走到可用版本",
+    "project.evalStepRaw": "保存真实输出",
+    "project.evalStepGold": "核对官方资料",
+    "project.evalStepReview": "逐项复审",
+    "project.evalStepDiagnose": "标记问题原因",
+    "project.evalStepPair": "组成偏好对",
+    "project.evalStepRebuild": "重写理想答案",
+    "project.evalTableAlt": "AI 搜索回答评测的案例、偏好对和理想回答数量",
+    "project.evalTableCaption": "案例、偏好对与理想回答",
+    "project.evalStatsKicker": "样本进度 / 2026.06",
+    "project.evalStatsTitle": "先把失败案例做透，再扩充样本",
+    "project.evalLowScore": "典型低分回答",
+    "project.evalCandidates": "候选案例",
+    "project.evalVerified": "完成核验",
+    "project.evalPairs": "偏好对",
+    "project.evalIdeal": "理想答案",
     "project.evalTitle1": "AI 搜索回答",
     "project.evalTitle2": "质量评测",
     "project.evalSummary": "我用真实回答检查旧信息、弱引用和答非所问。",
@@ -64,7 +100,18 @@ const translations = {
     "project.ragPhoneNote": "记录饮食，关联个人档案。",
     "project.ragFlow1": "从日常记录出发，",
     "project.ragFlow2": "再查相关文献。",
-    "project.ragCaption": "毕业设计功能流程",
+    "project.ragCaption": "功能流程原型",
+    "project.ragMealTitle": "午餐已识别 4 种食物",
+    "project.ragProfileTitle": "把一餐放回个人情况里看。",
+    "project.ragProfileEnergy": "能量",
+    "project.ragProfileProtein": "蛋白质",
+    "project.ragProfileSalt": "钠",
+    "project.ragMealCaption": "饮食识别与个人档案原型",
+    "project.ragQuestion": "高血压人群该怎样控制钠摄入？",
+    "project.ragPaper1": "膳食钠与血压的系统综述",
+    "project.ragPaper2": "低钠干预与心血管结局",
+    "project.ragAnswerTitle": "先给能执行的建议，再把依据留在旁边。",
+    "project.ragEvidenceCaption": "文献检索与回答原型",
     "project.ragSummary": "本科毕业设计：用微信小程序记录饮食，并把健康问答连接到 PubMed 文献。",
     "project.ragStory1": "用户可以拍照记录一餐，系统识别食物并结合个人档案给出反馈。遇到健康问题时，回答会先检索 PubMed 文献，再组织成便于理解的说明。",
     "project.ragStory2": "我完成了微信小程序前端、Flask 后端、SQLite 数据库和论文，把食物识别、个人档案、饮食反馈与文献问答串成了一个可操作的功能原型。",
@@ -102,6 +149,8 @@ const translations = {
     "contact.title": "联系我",
     "contact.lead": "我正在寻找 AI 产品、模型评测与人机交互方向的实习和项目机会。",
     "contact.print": "打印 / 存为 PDF",
+    "gallery.previous": "上一张项目图片",
+    "gallery.next": "下一张项目图片",
     "theme.toLight": "切换到浅色模式",
     "theme.toDark": "切换到深色模式",
     "language.switch": "Switch to English"
@@ -120,7 +169,13 @@ const translations = {
     "aria.tsinghuaWebsite": "Tsinghua University website",
     "aria.modelRadar": "Open the Model Radar website",
     "aria.lightloom": "Open the public Lightloom project",
+    "aria.radarGallery": "Model Radar project images",
+    "aria.lightloomGallery": "Lightloom project images",
+    "aria.evalGallery": "AI search evaluation project images",
+    "aria.ragGallery": "Smart nutrition assistant prototypes",
     "aria.ragFlow": "Smart nutrition assistant workflow",
+    "aria.ragMealPrototype": "Meal recognition and personal profile prototype",
+    "aria.ragEvidencePrototype": "PubMed retrieval and answer prototype",
     "profile.alt": "Minimal line-illustration portrait of Yichen Wang",
     "nav.about": "About",
     "nav.work": "Work",
@@ -147,20 +202,50 @@ const translations = {
     "availability.detail": "From Aug 11, 2026 · 5 days/week · 6+ months · Beijing preferred / Hangzhou considered",
     "work.title": "A few things I've built.",
     "project.radarAlt": "Model Radar homepage showing model updates, dates, metrics, and rankings",
-    "project.radarCaption": "Model Radar homepage · 2026",
+    "project.radarCaption": "Homepage and current snapshot · 2026",
+    "project.radarMapAlt": "Model Radar capability radar, signal blocks, and model ranking",
+    "project.radarMapCaption": "Capability radar and model ranking",
+    "project.radarDetailAlt": "Model Radar model detail and provider release clocks",
+    "project.radarDetailCaption": "Current signal and release cadence",
+    "project.radarSourcesAlt": "Official sources from twelve providers in Model Radar",
+    "project.radarSourcesCaption": "Official sources across twelve providers",
     "project.radarSummary": "A public site for keeping up with major AI model releases.",
     "project.radarStory1": "I wanted a quicker way to see what model providers had actually changed. I brought their official sites, release notes, docs, and pricing pages into one place, with capabilities, dates, and original sources visible from the start.",
     "project.radarStory2": "I handled the product structure, visual design, frontend, data refresh, and GitHub Pages release. It currently tracks 45 release points across 12 providers, with 13 automated checks guarding each update.",
     "project.radarRole": "Product · design · frontend · data",
     "project.radarScale": "12 providers · 45 release points",
     "project.lightloomAlt": "Lightloom interface with source material on the left and agent exploration on the right",
+    "project.lightloomAgentCaption": "Idea source and Agent exploration · 0.8.5",
+    "project.lightloomVaultAlt": "Lightloom Local Vault with file tree, Markdown editor, and reading view",
+    "project.lightloomVaultCaption": "Local Vault and split-view editing",
+    "project.lightloomRelationsAlt": "Lightloom relation view connecting Ideas and Agent findings",
+    "project.lightloomRelationsCaption": "Relations across records",
     "project.lightloomSummary": "A local-first Windows tool that lets agents work through scattered material without taking it away from you.",
     "project.lightloomStory1": "My notes, web pages, screenshots, files, and recordings end up everywhere. I wanted them saved as ordinary local files first, with AI available when I need help finding connections or adding context.",
     "project.lightloomStory2": "Lightloom keeps source files separate from AI output. Agents can explore in parallel, while the user can inspect sources, progress, and intermediate results at any time. The current release is 0.8.5.",
     "project.lightloomRole": "Product · interaction · desktop development",
     "project.lightloomFeatures": "Multimedia capture · parallel agents · checkpoints",
     "project.evalAlt": "AI search evaluation sample showing answer review, issue analysis, and preference pairs",
-    "project.evalCaption": "Search-answer evaluation sample",
+    "project.evalCaption": "From real output to the chosen answer",
+    "project.evalWorkflowAlt": "Six-step AI search answer verification workflow",
+    "project.evalWorkflowCaption": "Six-step verification workflow",
+    "project.evalWorkflowKicker": "VERIFICATION LOOP / 06",
+    "project.evalWorkflowTitle": "How an answer becomes usable",
+    "project.evalStepRaw": "Save the raw output",
+    "project.evalStepGold": "Check official sources",
+    "project.evalStepReview": "Review each claim",
+    "project.evalStepDiagnose": "Tag the failure",
+    "project.evalStepPair": "Build a preference pair",
+    "project.evalStepRebuild": "Write the ideal answer",
+    "project.evalTableAlt": "Counts of cases, preference pairs, and ideal answers in the evaluation set",
+    "project.evalTableCaption": "Cases, preference pairs, and ideal answers",
+    "project.evalStatsKicker": "SAMPLE PROGRESS / 2026.06",
+    "project.evalStatsTitle": "Study the failures before scaling the set",
+    "project.evalLowScore": "TYPICAL LOW-SCORE ANSWER",
+    "project.evalCandidates": "Candidates",
+    "project.evalVerified": "Verified",
+    "project.evalPairs": "Preference pairs",
+    "project.evalIdeal": "Ideal answers",
     "project.evalTitle1": "AI search answer",
     "project.evalTitle2": "quality evaluation",
     "project.evalSummary": "I test real answers for stale facts, weak sources, and missed questions.",
@@ -171,7 +256,18 @@ const translations = {
     "project.ragPhoneNote": "Log a meal and connect it to a personal profile.",
     "project.ragFlow1": "Start with the daily record,",
     "project.ragFlow2": "then retrieve the evidence.",
-    "project.ragCaption": "Graduation-project workflow",
+    "project.ragCaption": "Functional workflow prototype",
+    "project.ragMealTitle": "Four foods recognized in this lunch",
+    "project.ragProfileTitle": "Read each meal in the context of the person.",
+    "project.ragProfileEnergy": "Energy",
+    "project.ragProfileProtein": "Protein",
+    "project.ragProfileSalt": "Sodium",
+    "project.ragMealCaption": "Meal recognition and personal profile prototype",
+    "project.ragQuestion": "How should someone with hypertension reduce sodium?",
+    "project.ragPaper1": "Systematic review of dietary sodium and blood pressure",
+    "project.ragPaper2": "Low-sodium interventions and cardiovascular outcomes",
+    "project.ragAnswerTitle": "Give an actionable answer first, with evidence kept beside it.",
+    "project.ragEvidenceCaption": "Literature retrieval and answer prototype",
     "project.ragSummary": "My undergraduate thesis: a WeChat mini program that connects food logs and health questions to PubMed evidence.",
     "project.ragStory1": "A user photographs a meal, the system identifies the food, and the response draws on their profile. For health questions, it retrieves PubMed papers before writing a plain-language answer.",
     "project.ragStory2": "I built the WeChat frontend, Flask backend, and SQLite database, then documented the system in my thesis. The result was a working prototype that joined food recognition, profiles, dietary feedback, and literature-backed Q&A.",
@@ -209,6 +305,8 @@ const translations = {
     "contact.title": "Get in touch",
     "contact.lead": "I'm looking for internships and project work in AI products, model evaluation, and human-AI interaction.",
     "contact.print": "Print / Save as PDF",
+    "gallery.previous": "Previous project image",
+    "gallery.next": "Next project image",
     "theme.toLight": "Switch to light mode",
     "theme.toDark": "Switch to dark mode",
     "language.switch": "切换到中文"
@@ -219,6 +317,7 @@ const root = document.documentElement;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const themeButton = document.querySelector("#theme-toggle");
 const languageButton = document.querySelector("#language-toggle");
+const galleryControllers = [];
 
 const safeStorage = {
   get(key) {
@@ -291,6 +390,7 @@ function applyLanguage(language, persist = false) {
   }
   if (persist) safeStorage.set("portfolio-language", resolved);
   updateThemeControls(root.dataset.theme || "dark");
+  galleryControllers.forEach((controller) => controller.syncLabels());
 }
 
 applyTheme(root.dataset.theme || "dark");
@@ -303,6 +403,120 @@ themeButton?.addEventListener("click", () => {
 languageButton?.addEventListener("click", () => {
   applyLanguage(currentLanguage() === "zh" ? "en" : "zh", true);
 });
+
+function setupGallery(gallery) {
+  const track = gallery.querySelector(".gallery-track");
+  const slides = [...gallery.querySelectorAll("[data-gallery-slide]")];
+  const dots = gallery.querySelector("[data-gallery-dots]");
+  const previousButton = gallery.querySelector("[data-gallery-prev]");
+  const nextButton = gallery.querySelector("[data-gallery-next]");
+  const currentLabel = gallery.querySelector("[data-gallery-current]");
+  const totalLabel = gallery.querySelector("[data-gallery-total]");
+
+  if (!track || slides.length < 2 || !dots) return;
+
+  let activeIndex = 0;
+  let scrollFrame = 0;
+  let signalTimer = 0;
+
+  const galleryName = gallery.dataset.galleryName || "Project";
+  const indicatorButtons = slides.map((slide, index) => {
+    const button = document.createElement("button");
+    const previewImage = slide.querySelector("img");
+    button.type = "button";
+    button.dataset.indexLabel = String(index + 1).padStart(2, "0");
+    if (previewImage) {
+      button.style.setProperty("--thumb-image", `url("${previewImage.currentSrc || previewImage.src}")`);
+    }
+    button.addEventListener("click", () => goTo(index));
+    dots.append(button);
+    return button;
+  });
+
+  const syncLabels = () => {
+    indicatorButtons.forEach((button, index) => {
+      const caption = slides[index].querySelector(".media-caption")?.textContent.trim();
+      button.setAttribute("aria-label", `${galleryName} · ${caption || index + 1}`);
+    });
+  };
+
+  const setActive = (index, withSignal = false) => {
+    const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
+    const changed = nextIndex !== activeIndex;
+    activeIndex = nextIndex;
+
+    slides.forEach((slide, slideIndex) => slide.classList.toggle("is-current", slideIndex === activeIndex));
+    indicatorButtons.forEach((button, buttonIndex) => {
+      if (buttonIndex === activeIndex) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
+
+    if (currentLabel) currentLabel.textContent = String(activeIndex + 1).padStart(2, "0");
+    if (totalLabel) totalLabel.textContent = String(slides.length).padStart(2, "0");
+    if (previousButton) previousButton.disabled = activeIndex === 0;
+    if (nextButton) nextButton.disabled = activeIndex === slides.length - 1;
+
+    if (withSignal && changed && !reducedMotion.matches) {
+      window.clearTimeout(signalTimer);
+      gallery.classList.remove("is-changing");
+      requestAnimationFrame(() => gallery.classList.add("is-changing"));
+      signalTimer = window.setTimeout(() => gallery.classList.remove("is-changing"), 820);
+    }
+  };
+
+  function goTo(index) {
+    const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
+    setActive(nextIndex, true);
+    track.scrollTo({
+      left: slides[nextIndex].offsetLeft,
+      behavior: reducedMotion.matches ? "auto" : "smooth"
+    });
+  }
+
+  previousButton?.addEventListener("click", () => goTo(activeIndex - 1));
+  nextButton?.addEventListener("click", () => goTo(activeIndex + 1));
+
+  track.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === "Home") goTo(0);
+    else if (event.key === "End") goTo(slides.length - 1);
+    else goTo(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
+  });
+
+  track.addEventListener(
+    "scroll",
+    () => {
+      if (scrollFrame) cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(() => {
+        const index = slides.reduce((closest, slide, slideIndex) => {
+          const currentDistance = Math.abs(slide.offsetLeft - track.scrollLeft);
+          const closestDistance = Math.abs(slides[closest].offsetLeft - track.scrollLeft);
+          return currentDistance < closestDistance ? slideIndex : closest;
+        }, 0);
+        setActive(index, index !== activeIndex);
+      });
+    },
+    { passive: true }
+  );
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(() => {
+      track.scrollLeft = slides[activeIndex].offsetLeft;
+    });
+    resizeObserver.observe(track);
+  }
+
+  setActive(0);
+  syncLabels();
+  galleryControllers.push({ syncLabels });
+}
+
+document.querySelectorAll("[data-gallery]").forEach(setupGallery);
+
+const syncPageVisibility = () => root.classList.toggle("page-hidden", document.hidden);
+document.addEventListener("visibilitychange", syncPageVisibility);
+syncPageVisibility();
 
 const revealItems = [...document.querySelectorAll(".reveal")];
 

@@ -13,15 +13,15 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 - 姓名、学历、专业、GPA、升学与求职状态 / identity, education, GPA, graduate study, and availability
 - 浙江大学与清华大学校徽强化的教育信息 / education blocks supported by official ZJU and Tsinghua emblems
 - Model Radar、Lightloom、AI 搜索评测、PubMed RAG 四个项目 / four selected projects
-- 产品截图、评测样本与毕业设计功能图 / product screens, evaluation artifact, and graduation-project flow
+- 可滑动的多图项目记录：真实产品界面、脱敏评测样本与明确标注的毕业设计功能原型 / swipeable project media with real product screens, a desensitized evaluation artifact, and clearly labeled graduation-project prototypes
 - 分组呈现的教育与实践经历 / grouped education and hands-on experience
 - 自动识别中英文，深色主题默认开启，语言与主题均可手动切换 / browser-language detection, a dark default, and manual language/theme controls
 
 ## 视觉方向 / Visual Direction
 
-网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育与 GPA 组成三联信号板；项目以“产品画面 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。页面框架在大屏上延展到接近视口边缘，项目画面与信号面板随屏幕同步放大，正文保持适合阅读的行长。人物使用低细节简笔插画识别卡，联系区以五轴工作画像雷达作越界背景。
+网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育与 GPA 组成三联信号板；项目以“多图工作记录 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。媒体区采用用户控制的胶片式导航，支持触控滑动、方向键与 Home/End，不会自动翻页。页面框架在大屏上延展到接近视口边缘，项目画面与信号面板随屏幕同步放大，正文保持适合阅读的行长。人物使用低细节简笔插画识别卡，联系区以五轴工作画像雷达作越界背景。
 
-The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. The frame expands toward the viewport edges on large displays, while project media and signal panels scale up without stretching body copy into long lines. A low-detail line portrait keeps the identity card calm, and a five-axis working-profile radar extends beyond the contact frame.
+The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. Each project uses a user-controlled filmstrip with touch swiping and keyboard navigation, without autoplay. The frame expands toward the viewport edges on large displays, while project media and signal panels scale up without stretching body copy into long lines. A low-detail line portrait keeps the identity card calm, and a five-axis working-profile radar extends beyond the contact frame.
 
 ## 本地预览 / Local Preview
 
