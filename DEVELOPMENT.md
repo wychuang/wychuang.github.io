@@ -47,7 +47,8 @@ npm run build
 - 继续使用 `--night`、`--paper`、`--acid`、`--hot`、`--sky` 这组 Model Radar 色彩变量。
 - 避免通用 SaaS 卡片墙、紫色渐变和无目的装饰。
 - 动效承担进入、扫描和状态提示功能，并尊重 `prefers-reduced-motion`。
-- 色块承担信息层级：酸绿与珊瑚红用于人物套印，GPA 使用整块强调，项目媒体用不同信号色偏移衬底。控制为三组明确用途，避免零散贴片。
+- 色块承担页面结构：首屏教育信息使用纸色、酸绿和青色三联板；项目使用整块酸绿、青色、珊瑚红和玫红说明面板；联系区使用纸色收束。色块之间用硬边与网格连接。
+- 章节标题使用 Model Radar 式 masthead：紧排巨型标题与小号等宽读数并置。项目说明和画面直接拼接，避免回到常规卡片与浮层。
 - 动效共用“落位—呼吸—扫描”的低幅度节奏；人物漂浮不超过 4px，图像缩放不超过 1.018，色块位移不超过 7px。
 - 点阵头像来自站点所有者提供的本人照片，保持小尺寸，仅作为首屏识别符。
 - 人物使用编辑式识别卡呈现：矩形裁切、套准线、点阵纹理和一条窄扫描带。完整面部始终可见，避免圆形雷达与大块明暗分区。
@@ -63,7 +64,8 @@ npm run build
 - Preserve the Model Radar color variables and signal language.
 - Avoid generic SaaS card grids and decorative effects without an information purpose.
 - Motion should support entry, scanning, or status, with reduced-motion support.
-- Use color blocks as structure: acid and coral behind the portrait, a solid GPA block, and signal-color backings behind project media.
+- Use color blocks as page structure: a paper, acid, and cyan education strip; full acid, cyan, coral, and rose project panels; and a paper contact close.
+- Build section mastheads from oversized compressed titles, compact mono readouts, hard borders, and directly joined media/copy panels.
 - Keep motion on one low-amplitude settle, breathe, and scan rhythm; portrait drift stays within 4px, image scale within 1.018, and color-block travel within 7px.
 - Use the owner-approved likeness inside a compact editorial identity card with registration marks and raster texture.
 - Keep the full face visible and move only a narrow horizontal scanning band. Stop the band under reduced motion and remove overlays in print.

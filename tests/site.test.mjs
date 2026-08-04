@@ -103,8 +103,13 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(css, /@keyframes color-block-drift/);
   assert.match(css, /--block-acid:/);
   assert.match(css, /--block-hot:/);
+  assert.match(css, /--block-rose:/);
+  assert.match(css, /--signal-paper:/);
   assert.match(css, /\.portrait-card\s*\{[^}]*width:\s*224px/s);
   assert.match(css, /\.gpa-fact\s*\{[^}]*background:\s*var\(--block-acid\)/s);
+  assert.match(css, /\.case-copy\s*\{[^}]*background:\s*var\(--case-accent\)/s);
+  assert.match(css, /\.case-study:nth-of-type\(4\)\s*\{[^}]*--case-accent:\s*var\(--block-rose\)/s);
+  assert.match(css, /@keyframes signal-band-drift/);
   assert.match(css, /prefers-reduced-motion:\s*reduce[^}]*\}/s);
   assert.doesNotMatch(`${html}\n${css}`, /profile-radar|radar-counter-sweep|mask-image:\s*conic-gradient/);
   assert.doesNotMatch(html, /<canvas/);
