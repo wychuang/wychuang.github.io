@@ -117,6 +117,12 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.doesNotMatch(html, /<canvas/);
 });
 
+test("wide-screen layout expands while retaining a dedicated large-display breakpoint", () => {
+  assert.match(css, /--content:\s*2560px/);
+  assert.match(css, /@media\s*\(min-width:\s*1500px\)/);
+  assert.match(css, /\.project-summary,[\s\S]*\.case-links\s*\{\s*max-width:\s*760px/);
+});
+
 test("public copy excludes production notes and review language", () => {
   assert.doesNotMatch(visibleText, /BOUNDARY|VISUAL NOTE|REAL PRODUCT SCREEN|REAL APP SCREEN|REAL WORKING ARTIFACT|FLOW RECONSTRUCTION|UI SNAPSHOT|CAPTURED/i);
 });

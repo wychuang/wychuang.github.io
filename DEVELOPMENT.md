@@ -58,7 +58,8 @@ npm run build
 - 浙江大学校徽取自[浙江大学校标规范页](https://www.zju.edu.cn/xb/list.htm)，清华大学校徽取自[清华大学视觉形象识别系统](https://vi.tsinghua.edu.cn/gk/xxbz/xh.htm)。保留官网配色和比例，只允许清理画布留白与等比缩放。
 - 项目图片必须来自公开产品、合成示例或已脱敏工作稿；功能重构图需明确标注，不能冒充真实截图。
 - 修改桌面布局时同时检查 780px 与 480px 断点、键盘焦点和打印样式。
-- 标题字体需保留 macOS、iOS、Android 和 Windows 的后备字体；发布前检查 320、375、390、768 和 1440px 宽度没有横向溢出。
+- 大屏框架允许延展到 2560px；1500px 以上放大标题、色块与项目画面，同时限制正文阅读宽度。
+- 标题字体需保留 macOS、iOS、Android 和 Windows 的后备字体；发布前检查 320、375、390、768、1440、1920 和 2560px 宽度没有横向溢出。
 - 首屏内容明显变化后，用 1200×630 视口重新生成 `og-card.png`，并检查文字没有被截图边缘裁掉。
 
 - Preserve the Model Radar color variables and signal language.
@@ -73,5 +74,6 @@ npm run build
 - Keep Chinese as the no-script HTML fallback and provide both languages for every translation hook.
 - Preserve the official colors and proportions of the ZJU and Tsinghua emblems; only trim blank canvas and scale proportionally.
 - Check desktop, 780px, 480px, keyboard focus, and print output after layout changes.
-- Preserve cross-platform font fallbacks and verify no horizontal overflow at 320, 375, 390, 768, and 1440px.
+- Let the frame expand up to 2560px; above 1500px, scale headlines, signal blocks, and project media while keeping body copy on a controlled measure.
+- Preserve cross-platform font fallbacks and verify no horizontal overflow at 320, 375, 390, 768, 1440, 1920, and 2560px.
 - Regenerate `og-card.png` from a 1200×630 hero viewport after major hero changes.
