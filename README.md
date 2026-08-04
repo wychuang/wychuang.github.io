@@ -1,8 +1,8 @@
 # 王逸尘个人网站 / Yichen Wang Portfolio
 
-这是王逸尘的个人叙事与作品网站，聚焦 AI 产品、模型评测、人机交互和可追溯交付。
+这是王逸尘的个人简历与作品网站，聚焦 AI 产品、模型评测和人机交互。
 
-This is Yichen Wang's narrative portfolio, focused on AI product work, model evaluation, human-AI interaction, and evidence-backed delivery.
+This is Yichen Wang's résumé and portfolio site, focused on AI product work, model evaluation, and human-AI interaction.
 
 ## 在线地址 / Live Site
 
@@ -10,16 +10,16 @@ This is Yichen Wang's narrative portfolio, focused on AI product work, model eva
 
 ## 内容结构 / Content
 
-- 自我介绍与从生物医学、工业设计走向 AI 产品的个人历程 / personal introduction and interdisciplinary journey
-- Model Radar、Lightloom、AI 搜索评测、PubMed RAG 四个真实案例 / four evidence-backed project stories
-- 实际产品截图、评测工作稿与诚实标注的原型链路复现 / real product screens, evaluation artifacts, and labeled flow reconstruction
-- 从问题定义、原型实现到结果验证的工作方法 / end-to-end working method
+- 姓名、学历、专业、GPA、升学与求职状态 / identity, education, GPA, graduate study, and availability
+- Model Radar、Lightloom、AI 搜索评测、PubMed RAG 四个项目 / four selected projects
+- 产品截图、评测样本与毕业设计功能图 / product screens, evaluation artifact, and graduation-project flow
+- 简明的教育与工作经历 / concise education and experience
 
 ## 视觉方向 / Visual Direction
 
-网站沿用 Model Radar 的复古未来控制室语言：深色网格、大字号、纸色与荧光信号色、雷达刻度和紧凑的信息标签。首屏使用程序化点阵人物与大范围雷达扫描，阅读顺序调整为“我是谁—如何走到这里—做过什么—证据在哪里—如何联系”。
+网站沿用 Model Radar 的复古控制室语言：深色网格、大字号、纸色与荧光信号色。首屏先给出简历关键信息，小型雷达头像作为个人识别符；项目在前，个人经历在后。
 
-The visual system extends Model Radar's retro-future control-room language with a procedural dot portrait and a large scanning field. The narrative moves from identity and journey to real projects, evidence, working method, and contact.
+The visual system extends Model Radar's control-room language with a compact dot-matrix portrait. The page moves from résumé facts to selected work, experience, and contact.
 
 ## 本地预览 / Local Preview
 
