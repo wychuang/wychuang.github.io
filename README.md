@@ -19,9 +19,9 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 
 ## 视觉方向 / Visual Direction
 
-网站沿用 Model Radar 的复古控制室语言：网格、大字号、纸色与荧光信号色。首屏先给出简历关键信息，人物以编辑式识别卡呈现；窄扫描带经过时只增加局部亮度，完整面部始终可见。项目在前，个人经历在后。
+网站沿用 Model Radar 的复古控制室语言：网格、大字号、纸色与荧光信号色。酸绿与珊瑚红色块构成人物卡的套印底座，GPA 作为完整信息色块，项目画面使用不同信号色偏移衬底。首屏先给出简历关键信息，人物以编辑式识别卡呈现；窄扫描带经过时只增加局部亮度，完整面部始终可见。项目在前，个人经历在后。
 
-The visual system extends Model Radar's control-room language with an editorial identity card: registration marks, raster texture, and a narrow scanning band over a fully visible portrait. The page moves from résumé facts to selected work, experience, and contact.
+The visual system extends Model Radar's control-room language through bold offset color blocks, an editorial identity card, and signal-color backings for project media. Registration marks, raster texture, and a narrow scanning band keep the fully visible portrait active without overwhelming it. The page moves from résumé facts to selected work, experience, and contact.
 
 ## 本地预览 / Local Preview
 

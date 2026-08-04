@@ -47,6 +47,8 @@ npm run build
 - 继续使用 `--night`、`--paper`、`--acid`、`--hot`、`--sky` 这组 Model Radar 色彩变量。
 - 避免通用 SaaS 卡片墙、紫色渐变和无目的装饰。
 - 动效承担进入、扫描和状态提示功能，并尊重 `prefers-reduced-motion`。
+- 色块承担信息层级：酸绿与珊瑚红用于人物套印，GPA 使用整块强调，项目媒体用不同信号色偏移衬底。控制为三组明确用途，避免零散贴片。
+- 动效共用“落位—呼吸—扫描”的低幅度节奏；人物漂浮不超过 4px，图像缩放不超过 1.018，色块位移不超过 7px。
 - 点阵头像来自站点所有者提供的本人照片，保持小尺寸，仅作为首屏识别符。
 - 人物使用编辑式识别卡呈现：矩形裁切、套准线、点阵纹理和一条窄扫描带。完整面部始终可见，避免圆形雷达与大块明暗分区。
 - 深色模式突出酸绿识别条、设备铭牌与硬边偏移阴影；浅色模式使用纸张、深墨和橄榄套印，避免发光雷达效果。
@@ -61,6 +63,8 @@ npm run build
 - Preserve the Model Radar color variables and signal language.
 - Avoid generic SaaS card grids and decorative effects without an information purpose.
 - Motion should support entry, scanning, or status, with reduced-motion support.
+- Use color blocks as structure: acid and coral behind the portrait, a solid GPA block, and signal-color backings behind project media.
+- Keep motion on one low-amplitude settle, breathe, and scan rhythm; portrait drift stays within 4px, image scale within 1.018, and color-block travel within 7px.
 - Use the owner-approved likeness inside a compact editorial identity card with registration marks and raster texture.
 - Keep the full face visible and move only a narrow horizontal scanning band. Stop the band under reduced motion and remove overlays in print.
 - Default to dark mode, detect the browser language, and persist explicit language/theme choices in `localStorage`.

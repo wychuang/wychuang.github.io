@@ -91,14 +91,21 @@ test("every translation hook has Chinese and English copy", () => {
   }
 });
 
-test("editorial portrait card stays compact and motion-aware", () => {
+test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(html, /class="portrait-stage"/);
   assert.match(html, /class="portrait-raster"/);
   assert.match(html, /class="portrait-scanner"/);
   assert.match(html, /class="portrait-registration"/);
   assert.match(html, /assets\/profile-dotmatrix\.png/);
   assert.match(css, /@keyframes portrait-scan/);
+  assert.match(css, /@keyframes portrait-float/);
+  assert.match(css, /@keyframes portrait-breathe/);
+  assert.match(css, /@keyframes color-block-drift/);
+  assert.match(css, /--block-acid:/);
+  assert.match(css, /--block-hot:/);
   assert.match(css, /\.portrait-card\s*\{[^}]*width:\s*224px/s);
+  assert.match(css, /\.gpa-fact\s*\{[^}]*background:\s*var\(--block-acid\)/s);
+  assert.match(css, /prefers-reduced-motion:\s*reduce[^}]*\}/s);
   assert.doesNotMatch(`${html}\n${css}`, /profile-radar|radar-counter-sweep|mask-image:\s*conic-gradient/);
   assert.doesNotMatch(html, /<canvas/);
 });
