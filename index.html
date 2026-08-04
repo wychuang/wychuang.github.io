@@ -92,7 +92,7 @@
 
         <figure class="portrait-card reveal">
           <div class="portrait-stage">
-            <img class="portrait-image" src="./assets/profile-dotmatrix.png" width="600" height="600" alt="王逸尘的点阵头像" data-i18n-alt="profile.alt">
+            <img class="portrait-image" src="./assets/profile-illustrated.webp" width="800" height="800" alt="王逸尘的简笔插画头像" data-i18n-alt="profile.alt">
             <div class="portrait-raster" aria-hidden="true"></div>
             <div class="portrait-scanner" aria-hidden="true"></div>
             <span class="portrait-tag mono" aria-hidden="true">YW / 01</span>
@@ -143,7 +143,7 @@
           </article>
         </div>
 
-        <p class="availability reveal"><span data-i18n="availability.label">求职状态</span> <b data-i18n="availability.detail">2026.08.11 起 · 每周 5 天 · 可实习 6 个月以上 · 上海 / 北京 / 深圳 / 杭州</b></p>
+        <p class="availability reveal"><span data-i18n="availability.label">求职状态</span> <b data-i18n="availability.detail">2026.08.11 起 · 每周 5 天 · 可实习 6 个月以上 · 北京优先 / 杭州可考虑</b></p>
       </section>
 
       <section id="work" class="work section-frame" aria-labelledby="work-title">
@@ -274,7 +274,7 @@
         <header class="section-intro reveal">
           <p class="section-number mono">02 / EXPERIENCE</p>
           <h2 id="experience-title" data-i18n="experience.title">教育与经历</h2>
-          <p class="experience-lead" data-i18n="experience.lead">我的路径横跨医学工程、工业设计和 AI 产品。这里先列教育背景，再列几段真正影响我工作方法的实践。</p>
+          <p class="experience-lead" data-i18n="experience.lead">关键词：医学数据与证据、用户研究与交互设计、AI 产品与模型评测。技术栈：Python、JavaScript、SQL、Flask、SQLite、RAG、自动化测试。</p>
         </header>
 
         <div class="experience-grid">
@@ -326,6 +326,35 @@
       </section>
 
       <section id="contact" class="contact section-frame" aria-labelledby="contact-title">
+        <div class="contact-radar" aria-hidden="true">
+          <svg viewBox="0 0 600 600" focusable="false">
+            <g class="contact-radar-grid">
+              <polygon points="300,40 547,220 453,510 147,510 53,220"></polygon>
+              <polygon points="300,105 485,240 415,458 185,458 115,240"></polygon>
+              <polygon points="300,170 424,260 376,405 224,405 176,260"></polygon>
+              <polygon points="300,235 362,280 338,353 262,353 238,280"></polygon>
+              <path d="M300 300V40M300 300L547 220M300 300L453 510M300 300L147 510M300 300L53 220"></path>
+            </g>
+            <polygon class="contact-radar-profile" points="300,71 535,224 419,464 175,472 122,242"></polygon>
+            <g class="contact-radar-nodes">
+              <circle cx="300" cy="71" r="6"></circle>
+              <circle cx="535" cy="224" r="6"></circle>
+              <circle cx="419" cy="464" r="6"></circle>
+              <circle cx="175" cy="472" r="6"></circle>
+              <circle cx="122" cy="242" r="6"></circle>
+              <circle cx="300" cy="300" r="8"></circle>
+            </g>
+            <line class="contact-radar-sweep" x1="300" y1="300" x2="300" y2="34"></line>
+            <g class="contact-radar-labels">
+              <text x="300" y="20" text-anchor="middle">EVIDENCE</text>
+              <text x="558" y="216">PRODUCT</text>
+              <text x="460" y="544">DESIGN</text>
+              <text x="140" y="544" text-anchor="end">SYSTEMS</text>
+              <text x="42" y="216" text-anchor="end">RESEARCH</text>
+            </g>
+          </svg>
+          <span class="contact-radar-caption mono">WORKING PROFILE / 05 AXES</span>
+        </div>
         <div class="contact-copy reveal">
           <p class="section-number mono">03 / CONTACT</p>
           <h2 id="contact-title" data-i18n="contact.title">联系我</h2>

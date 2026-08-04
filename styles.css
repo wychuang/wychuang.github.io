@@ -1405,6 +1405,9 @@ html[lang="en"] .experience .section-intro h2 {
 }
 
 .contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-top: 110px;
   padding-bottom: 110px;
   color: var(--signal-ink);
@@ -1416,7 +1419,94 @@ html[lang="en"] .experience .section-intro h2 {
 }
 
 .contact-copy {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
+}
+
+.contact-radar {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: -8vw;
+  width: clamp(620px, 52vw, 1180px);
+  aspect-ratio: 1;
+  color: var(--signal-ink);
+  opacity: 0.14;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-4deg);
+}
+
+.contact-radar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.contact-radar-grid polygon,
+.contact-radar-grid path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.contact-radar-grid polygon:nth-child(2),
+.contact-radar-grid polygon:nth-child(4) {
+  stroke-dasharray: 5 8;
+}
+
+.contact-radar-profile {
+  fill: rgba(32, 168, 255, 0.2);
+  stroke: currentColor;
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  vector-effect: non-scaling-stroke;
+  animation: contact-radar-breathe 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.contact-radar-nodes circle {
+  fill: var(--block-acid);
+  stroke: currentColor;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.contact-radar-sweep {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 13 8;
+  transform-box: view-box;
+  transform-origin: 300px 300px;
+  vector-effect: non-scaling-stroke;
+  animation: contact-radar-sweep 18s linear infinite;
+}
+
+.contact-radar-labels {
+  fill: currentColor;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.contact-radar-caption {
+  position: absolute;
+  right: 12%;
+  bottom: 4%;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+
+@keyframes contact-radar-sweep {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes contact-radar-breathe {
+  0%, 100% { opacity: 0.62; transform: scale(0.985); }
+  50% { opacity: 1; transform: scale(1.015); }
 }
 
 .contact .section-number {
@@ -1762,6 +1852,12 @@ html[lang="en"] .experience .section-intro h2 {
     grid-template-columns: 135px minmax(190px, 0.6fr) minmax(300px, 1fr);
     gap: 0;
   }
+
+  .contact-radar {
+    right: -300px;
+    width: 620px;
+    opacity: 0.1;
+  }
 }
 
 @media (max-width: 780px) {
@@ -1851,6 +1947,10 @@ html[lang="en"] .experience .section-intro h2 {
 
   .side-links {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .contact-radar {
+    display: none;
   }
 }
 
@@ -2301,7 +2401,9 @@ html[lang="en"] .experience .section-intro h2 {
   .portrait-card::before,
   .portrait-card::after,
   .portrait-stage,
-  .portrait-image {
+  .portrait-image,
+  .contact-radar-profile,
+  .contact-radar-sweep {
     animation: none !important;
     transform: none !important;
   }
@@ -2343,7 +2445,8 @@ html[lang="en"] .experience .section-intro h2 {
   .portrait-tag,
   .portrait-axis,
   .portrait-code,
-  .portrait-card figcaption {
+  .portrait-card figcaption,
+  .contact-radar {
     display: none !important;
   }
 

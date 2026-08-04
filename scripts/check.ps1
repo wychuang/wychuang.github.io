@@ -34,7 +34,7 @@ try {
     }
 
     $assetPaths = @(
-      "/assets/profile-dotmatrix.png",
+      "/assets/profile-illustrated.webp",
       "/assets/zju-emblem.png",
       "/assets/tsinghua-emblem.jpg",
       "/assets/model-radar-screen.png",

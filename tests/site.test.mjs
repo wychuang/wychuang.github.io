@@ -6,6 +6,7 @@ const projectRoot = new URL("../", import.meta.url);
 const html = await readFile(new URL("index.html", projectRoot), "utf8");
 const css = await readFile(new URL("styles.css", projectRoot), "utf8");
 const script = await readFile(new URL("app.js", projectRoot), "utf8");
+const devServer = await readFile(new URL("scripts/dev-server.mjs", projectRoot), "utf8");
 const visibleText = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
 
 test("page has the expected identity and selected work", () => {
@@ -23,6 +24,13 @@ test("page has the expected identity and selected work", () => {
   ]) {
     assert.ok(visibleText.includes(phrase), `missing visible phrase: ${phrase}`);
   }
+});
+
+test("public profile keeps the corrected location and scan-friendly working keywords", () => {
+  assert.ok(visibleText.includes("北京优先 / 杭州可考虑"));
+  assert.ok(visibleText.includes("关键词：医学数据与证据、用户研究与交互设计、AI 产品与模型评测"));
+  assert.ok(visibleText.includes("技术栈：Python、JavaScript、SQL、Flask、SQLite、RAG、自动化测试"));
+  assert.doesNotMatch(`${html}\n${script}`, /上海 \/ 北京 \/ 深圳 \/ 杭州|Shanghai \/ Beijing \/ Shenzhen \/ Hangzhou/);
 });
 
 test("navigation anchors point to unique sections", () => {
@@ -46,7 +54,7 @@ test("accessibility and reduced-motion safeguards are present", () => {
   assert.match(html, /aria-label="主导航"/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /:focus-visible/);
-  assert.match(html, /alt="王逸尘的点阵头像"/);
+  assert.match(html, /alt="王逸尘的简笔插画头像"/);
 });
 
 test("content remains visible without JavaScript and social metadata is complete", async () => {
@@ -56,7 +64,8 @@ test("content remains visible without JavaScript and social metadata is complete
   assert.match(html, /property="og:image"/);
   assert.match(html, /name="twitter:image"/);
   assert.ok((await stat(new URL("og-card.png", projectRoot))).size > 10_000);
-  for (const asset of ["profile-dotmatrix.png", "zju-emblem.png", "tsinghua-emblem.jpg", "model-radar-screen.png", "lightloom-agent-screen.png", "search-eval-loop.png"]) {
+  assert.match(devServer, /"\.webp":\s*"image\/webp"/);
+  for (const asset of ["profile-illustrated.webp", "zju-emblem.png", "tsinghua-emblem.jpg", "model-radar-screen.png", "lightloom-agent-screen.png", "search-eval-loop.png"]) {
     assert.ok((await stat(new URL(`assets/${asset}`, projectRoot))).size > 10_000, `invalid asset: ${asset}`);
   }
 });
@@ -96,7 +105,7 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(html, /class="portrait-raster"/);
   assert.match(html, /class="portrait-scanner"/);
   assert.match(html, /class="portrait-registration"/);
-  assert.match(html, /assets\/profile-dotmatrix\.png/);
+  assert.match(html, /assets\/profile-illustrated\.webp/);
   assert.match(css, /@keyframes portrait-scan/);
   assert.match(css, /@keyframes portrait-float/);
   assert.match(css, /@keyframes portrait-breathe/);
@@ -115,6 +124,17 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(css, /prefers-reduced-motion:\s*reduce[^}]*\}/s);
   assert.doesNotMatch(`${html}\n${css}`, /profile-radar|radar-counter-sweep|mask-image:\s*conic-gradient/);
   assert.doesNotMatch(html, /<canvas/);
+});
+
+test("contact section includes a meaningful motion-safe background radar", () => {
+  assert.match(html, /class="contact-radar"/);
+  for (const label of ["EVIDENCE", "PRODUCT", "DESIGN", "SYSTEMS", "RESEARCH"]) {
+    assert.ok(visibleText.includes(label), `missing radar axis: ${label}`);
+  }
+  assert.match(css, /@keyframes contact-radar-sweep/);
+  assert.match(css, /\.contact-radar-profile/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.contact-radar-sweep/);
+  assert.match(css, /@media print[\s\S]*\.contact-radar/);
 });
 
 test("wide-screen layout expands while retaining a dedicated large-display breakpoint", () => {
