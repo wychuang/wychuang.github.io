@@ -27,7 +27,7 @@
         try {
           const storedTheme = localStorage.getItem("portfolio-theme");
           const storedLanguage = localStorage.getItem("portfolio-language");
-          const theme = storedTheme || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+          const theme = storedTheme || "dark";
           const language = storedLanguage || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en");
           root.dataset.theme = theme;
           root.dataset.language = language;
@@ -90,16 +90,20 @@
           <p class="hero-role" data-i18n="hero.role">我在做 AI 产品，也在研究人怎么使用它。</p>
         </div>
 
-        <figure class="profile-radar reveal">
-          <div class="profile-radar-screen">
-            <img class="profile-image profile-image-base" src="./assets/profile-dotmatrix.png" width="600" height="600" alt="王逸尘的点阵头像" data-i18n-alt="profile.alt">
-            <div class="profile-reveal" aria-hidden="true">
-              <img class="profile-image profile-image-bright" src="./assets/profile-dotmatrix.png" width="600" height="600" alt="">
-            </div>
-            <div class="profile-sweep" aria-hidden="true"></div>
-            <div class="profile-crosshair" aria-hidden="true"></div>
+        <figure class="portrait-card reveal">
+          <div class="portrait-stage">
+            <img class="portrait-image" src="./assets/profile-dotmatrix.png" width="600" height="600" alt="王逸尘的点阵头像" data-i18n-alt="profile.alt">
+            <div class="portrait-raster" aria-hidden="true"></div>
+            <div class="portrait-scanner" aria-hidden="true"></div>
+            <span class="portrait-tag mono" aria-hidden="true">YW / 01</span>
+            <span class="portrait-axis mono" aria-hidden="true">HUMAN · SIGNAL</span>
+            <span class="portrait-code mono" aria-hidden="true">01</span>
+            <div class="portrait-registration" aria-hidden="true"></div>
           </div>
-          <figcaption class="mono"><i aria-hidden="true"></i> SIGNAL / YW-01</figcaption>
+          <figcaption class="mono">
+            <span><i aria-hidden="true"></i> IDENT / YW-01</span>
+            <span>FRAME / 01</span>
+          </figcaption>
         </figure>
 
         <div class="hero-summary reveal">

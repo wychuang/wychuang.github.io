@@ -265,7 +265,7 @@ html[data-theme="light"] .site-header {
 }
 
 .header-signal i,
-.profile-radar figcaption i {
+.portrait-card figcaption i {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -286,8 +286,8 @@ html[data-theme="light"] .site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 224px;
   grid-template-areas:
-    "identity radar"
-    "summary radar"
+    "identity portrait"
+    "summary portrait"
     "facts facts"
     "availability availability";
   gap: 28px 54px;
@@ -396,130 +396,169 @@ html[data-theme="light"] .site-header {
   background: var(--white);
 }
 
-.profile-radar {
-  grid-area: radar;
+.portrait-card {
+  grid-area: portrait;
   width: 224px;
   margin: 0;
   align-self: start;
 }
 
-.profile-radar-screen {
+.portrait-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid rgba(216, 255, 82, 0.5);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, transparent 28%, rgba(216, 255, 82, 0.18) 28.5%, transparent 29.5%, transparent 46%, rgba(216, 255, 82, 0.14) 46.5%, transparent 47.5%),
-    #080a08;
-  box-shadow: inset 0 0 38px rgba(114, 221, 209, 0.09), 0 0 0 8px rgba(216, 255, 82, 0.025);
+  padding: 8px;
+  border: 1px solid rgba(216, 255, 82, 0.62);
+  background: #070907;
+  box-shadow: 11px 11px 0 rgba(216, 255, 82, 0.1);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
 }
 
-.profile-radar-screen::before,
-.profile-radar-screen::after {
-  position: absolute;
-  z-index: 3;
-  content: "";
-  pointer-events: none;
+html[data-theme="light"] .portrait-stage {
+  border-color: #22251e;
+  background: #f7f3e8;
+  box-shadow: 10px 10px 0 rgba(113, 143, 0, 0.42);
 }
 
-.profile-radar-screen::before {
-  top: 50%;
-  right: 0;
-  left: 0;
-  height: 1px;
-  background: rgba(216, 255, 82, 0.25);
-}
-
-.profile-radar-screen::after {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: rgba(216, 255, 82, 0.25);
-}
-
-.profile-image {
-  position: absolute;
-  z-index: 1;
-  inset: 4%;
-  width: 92%;
-  height: 92%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.profile-image-base {
-  opacity: 0.3;
-  filter: brightness(0.86) contrast(0.94) saturate(0.66);
-}
-
-.profile-reveal {
-  position: absolute;
-  z-index: 2;
-  inset: 4%;
-  overflow: hidden;
-  border-radius: 50%;
-  -webkit-mask-image: conic-gradient(from -20deg, transparent 0 270deg, rgba(0, 0, 0, 0.08) 288deg, rgba(0, 0, 0, 0.42) 325deg, #000 352deg, transparent 360deg);
-  mask-image: conic-gradient(from -20deg, transparent 0 270deg, rgba(0, 0, 0, 0.08) 288deg, rgba(0, 0, 0, 0.42) 325deg, #000 352deg, transparent 360deg);
-  animation: radar-sweep 5.2s linear infinite;
-}
-
-.profile-reveal .profile-image {
-  inset: 0;
+.portrait-image {
   width: 100%;
   height: 100%;
-  opacity: 0.9;
-  filter: brightness(1.08) contrast(1.03) saturate(0.88);
-  animation: radar-counter-sweep 5.2s linear infinite;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1.02) contrast(1.04) saturate(0.78);
 }
 
-.profile-sweep {
-  position: absolute;
-  z-index: 3;
-  inset: -1px;
-  border-radius: 50%;
-  background: conic-gradient(from -16deg, transparent 0 304deg, rgba(216, 255, 82, 0.05) 316deg, rgba(216, 255, 82, 0.32) 350deg, rgba(216, 255, 82, 0.8) 359deg, transparent 360deg);
-  mix-blend-mode: screen;
-  animation: radar-sweep 5.2s linear infinite;
+html[data-theme="light"] .portrait-image {
+  filter: brightness(1.09) contrast(1.02) saturate(0.64);
 }
 
-.profile-crosshair {
+.portrait-raster,
+.portrait-registration,
+.portrait-scanner,
+.portrait-tag,
+.portrait-axis,
+.portrait-code {
   position: absolute;
-  z-index: 4;
-  inset: 10%;
-  border: 1px solid rgba(114, 221, 209, 0.18);
-  border-radius: 50%;
   pointer-events: none;
 }
 
-.profile-radar figcaption {
+.portrait-raster {
+  z-index: 2;
+  inset: 8px;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(216, 255, 82, 0.12) 3px 4px);
+  mix-blend-mode: screen;
+  opacity: 0.48;
+}
+
+html[data-theme="light"] .portrait-raster {
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(34, 37, 30, 0.11) 3px 4px);
+  mix-blend-mode: multiply;
+  opacity: 0.34;
+}
+
+.portrait-scanner {
+  z-index: 4;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  height: 17%;
+  border-bottom: 1px solid rgba(216, 255, 82, 0.94);
+  background: linear-gradient(to bottom, transparent, rgba(216, 255, 82, 0.2));
+  mix-blend-mode: screen;
+  animation: portrait-scan 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+html[data-theme="light"] .portrait-scanner {
+  border-color: rgba(79, 104, 0, 0.88);
+  background: linear-gradient(to bottom, transparent, rgba(113, 143, 0, 0.18));
+  mix-blend-mode: multiply;
+}
+
+.portrait-tag {
+  z-index: 5;
+  top: 14px;
+  left: 14px;
+  padding: 4px 6px;
+  color: var(--ink);
+  background: var(--acid);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.portrait-axis {
+  z-index: 5;
+  right: 13px;
+  bottom: 14px;
+  padding: 5px 3px;
+  color: var(--paper);
+  background: rgba(7, 9, 7, 0.78);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  writing-mode: vertical-rl;
+}
+
+html[data-theme="light"] .portrait-axis {
+  color: #f7f3e8;
+  background: rgba(34, 37, 30, 0.86);
+}
+
+.portrait-code {
+  z-index: 3;
+  right: 25px;
+  bottom: -20px;
+  color: rgba(216, 255, 82, 0.13);
+  font-size: 76px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.12em;
+}
+
+html[data-theme="light"] .portrait-code {
+  color: rgba(79, 104, 0, 0.14);
+}
+
+.portrait-registration {
+  z-index: 5;
+  inset: 0;
+  background:
+    linear-gradient(var(--acid), var(--acid)) 8px 8px / 21px 1px no-repeat,
+    linear-gradient(var(--acid), var(--acid)) 8px 8px / 1px 21px no-repeat,
+    linear-gradient(var(--acid), var(--acid)) calc(100% - 29px) calc(100% - 8px) / 21px 1px no-repeat,
+    linear-gradient(var(--acid), var(--acid)) calc(100% - 8px) calc(100% - 29px) / 1px 21px no-repeat;
+  opacity: 0.74;
+}
+
+.portrait-card figcaption {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 13px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
   color: var(--muted);
   font-size: 9px;
 }
 
-.profile-radar figcaption i {
-  display: block;
+.portrait-card figcaption span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.portrait-card figcaption i {
+  display: inline-block;
   width: 5px;
   height: 5px;
 }
 
-@keyframes radar-sweep {
-  to {
-    transform: rotate(360deg);
+@keyframes portrait-scan {
+  from {
+    transform: translateY(0);
   }
-}
 
-@keyframes radar-counter-sweep {
   to {
-    transform: rotate(-360deg);
+    transform: translateY(463%);
   }
 }
 
@@ -1211,7 +1250,7 @@ html[data-theme="light"] .prototype-flow {
     gap: 25px 38px;
   }
 
-  .profile-radar {
+  .portrait-card {
     width: 190px;
   }
 
@@ -1263,14 +1302,14 @@ html[data-theme="light"] .prototype-flow {
   .hero {
     grid-template-columns: minmax(0, 1fr) 154px;
     grid-template-areas:
-      "identity radar"
+      "identity portrait"
       "summary summary"
       "facts facts"
       "availability availability";
     padding-top: 58px;
   }
 
-  .profile-radar {
+  .portrait-card {
     width: 154px;
   }
 
@@ -1383,13 +1422,55 @@ html[data-theme="light"] .prototype-flow {
     line-height: 1.55;
   }
 
-  .profile-radar {
+  .portrait-card {
     width: 112px;
   }
 
-  .profile-radar figcaption {
+  .portrait-stage {
+    padding: 5px;
+    box-shadow: 6px 6px 0 rgba(216, 255, 82, 0.1);
+  }
+
+  html[data-theme="light"] .portrait-stage {
+    box-shadow: 6px 6px 0 rgba(113, 143, 0, 0.38);
+  }
+
+  .portrait-raster {
+    inset: 5px;
+  }
+
+  .portrait-scanner {
+    top: 5px;
+    right: 5px;
+    left: 5px;
+  }
+
+  .portrait-tag {
+    top: 9px;
+    left: 9px;
+    padding: 3px 4px;
+    font-size: 6px;
+  }
+
+  .portrait-axis {
+    right: 8px;
+    bottom: 9px;
+    font-size: 5px;
+  }
+
+  .portrait-code {
+    right: 16px;
+    bottom: -12px;
+    font-size: 46px;
+  }
+
+  .portrait-card figcaption {
     margin-top: 8px;
     font-size: 7px;
+  }
+
+  .portrait-card figcaption > span:last-child {
+    display: none;
   }
 
   .hero-summary > p,
@@ -1622,7 +1703,7 @@ html[data-theme="light"] .prototype-flow {
     grid-template-columns: minmax(0, 1fr) 96px;
   }
 
-  .profile-radar {
+  .portrait-card {
     width: 96px;
   }
 
@@ -1658,18 +1739,8 @@ html[data-theme="light"] .prototype-flow {
     transform: none;
   }
 
-  .profile-reveal {
-    opacity: 0.62;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .profile-reveal .profile-image {
-    opacity: 0.56;
-  }
-
-  .profile-sweep {
-    opacity: 0.16;
+  .portrait-scanner {
+    transform: translateY(225%);
   }
 }
 
@@ -1703,21 +1774,21 @@ html[data-theme="light"] .prototype-flow {
   .case-links,
   .print-button,
   .site-footer,
-  .profile-sweep {
+  .portrait-scanner,
+  .portrait-raster,
+  .portrait-registration,
+  .portrait-tag,
+  .portrait-axis,
+  .portrait-code,
+  .portrait-card figcaption {
     display: none !important;
   }
 
-  .profile-reveal {
-    opacity: 0.62;
-    -webkit-mask-image: none;
-    mask-image: none;
-    animation: none !important;
-  }
-
-  .profile-reveal .profile-image {
-    opacity: 0.56;
-    transform: none !important;
-    animation: none !important;
+  .portrait-stage {
+    padding: 4px;
+    border-color: #55584f;
+    box-shadow: none;
+    clip-path: none;
   }
 
   .section-frame {
@@ -1732,7 +1803,7 @@ html[data-theme="light"] .prototype-flow {
     padding-top: 0;
   }
 
-  .profile-radar {
+  .portrait-card {
     width: 120px;
   }
 

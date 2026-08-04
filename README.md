@@ -15,13 +15,13 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 - Model Radar、Lightloom、AI 搜索评测、PubMed RAG 四个项目 / four selected projects
 - 产品截图、评测样本与毕业设计功能图 / product screens, evaluation artifact, and graduation-project flow
 - 分组呈现的教育与实践经历 / grouped education and hands-on experience
-- 跟随系统的中英文与明暗主题，并支持手动切换 / system-aware Chinese/English and dark/light themes with manual controls
+- 自动识别中英文，深色主题默认开启，语言与主题均可手动切换 / browser-language detection, a dark default, and manual language/theme controls
 
 ## 视觉方向 / Visual Direction
 
-网站沿用 Model Radar 的复古控制室语言：网格、大字号、纸色与荧光信号色。首屏先给出简历关键信息，小型雷达头像作为个人识别符；项目在前，个人经历在后。深色与浅色模式共用一套信息层级。
+网站沿用 Model Radar 的复古控制室语言：网格、大字号、纸色与荧光信号色。首屏先给出简历关键信息，人物以编辑式识别卡呈现；窄扫描带经过时只增加局部亮度，完整面部始终可见。项目在前，个人经历在后。
 
-The visual system extends Model Radar's control-room language with a compact scan-revealed portrait. Dark and light modes share the same hierarchy, moving from résumé facts to selected work, experience, and contact.
+The visual system extends Model Radar's control-room language with an editorial identity card: registration marks, raster texture, and a narrow scanning band over a fully visible portrait. The page moves from résumé facts to selected work, experience, and contact.
 
 ## 本地预览 / Local Preview
 

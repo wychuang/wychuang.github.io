@@ -216,7 +216,6 @@ const translations = {
 };
 
 const root = document.documentElement;
-const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const themeButton = document.querySelector("#theme-toggle");
 const languageButton = document.querySelector("#language-toggle");
@@ -294,7 +293,7 @@ function applyLanguage(language, persist = false) {
   updateThemeControls(root.dataset.theme || "dark");
 }
 
-applyTheme(root.dataset.theme || (themeMedia.matches ? "light" : "dark"));
+applyTheme(root.dataset.theme || "dark");
 applyLanguage(root.dataset.language || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en"));
 
 themeButton?.addEventListener("click", () => {
@@ -304,12 +303,6 @@ themeButton?.addEventListener("click", () => {
 languageButton?.addEventListener("click", () => {
   applyLanguage(currentLanguage() === "zh" ? "en" : "zh", true);
 });
-
-const followSystemTheme = (event) => {
-  if (!safeStorage.get("portfolio-theme")) applyTheme(event.matches ? "light" : "dark");
-};
-if ("addEventListener" in themeMedia) themeMedia.addEventListener("change", followSystemTheme);
-else themeMedia.addListener(followSystemTheme);
 
 const revealItems = [...document.querySelectorAll(".reveal")];
 

@@ -61,13 +61,14 @@ test("content remains visible without JavaScript and social metadata is complete
   }
 });
 
-test("theme and language controls follow system preferences and support manual overrides", () => {
+test("theme defaults to dark while language follows the browser and both support manual overrides", () => {
   assert.match(html, /id="theme-toggle"/);
   assert.match(html, /id="language-toggle"/);
   assert.match(html, /portfolio-theme/);
   assert.match(html, /portfolio-language/);
   assert.match(html, /navigator\.language/);
-  assert.match(html, /prefers-color-scheme: light/);
+  assert.match(html, /const theme = storedTheme \|\| "dark"/);
+  assert.doesNotMatch(`${html}\n${script}`, /prefers-color-scheme: light/);
   assert.match(css, /html\[data-theme="light"\]/);
   assert.match(css, /\.js-enabled \.header-toggle\s*{\s*display:\s*grid;/);
   assert.match(script, /const translations =/);
@@ -90,15 +91,15 @@ test("every translation hook has Chinese and English copy", () => {
   }
 });
 
-test("portrait radar stays compact and motion-aware", () => {
-  assert.match(html, /class="profile-radar-screen"/);
-  assert.match(html, /class="profile-reveal"/);
-  assert.match(html, /class="profile-sweep"/);
+test("editorial portrait card stays compact and motion-aware", () => {
+  assert.match(html, /class="portrait-stage"/);
+  assert.match(html, /class="portrait-raster"/);
+  assert.match(html, /class="portrait-scanner"/);
+  assert.match(html, /class="portrait-registration"/);
   assert.match(html, /assets\/profile-dotmatrix\.png/);
-  assert.match(css, /@keyframes radar-sweep/);
-  assert.match(css, /@keyframes radar-counter-sweep/);
-  assert.match(css, /mask-image:\s*conic-gradient/);
-  assert.match(css, /\.profile-radar\s*\{[^}]*width:\s*224px/s);
+  assert.match(css, /@keyframes portrait-scan/);
+  assert.match(css, /\.portrait-card\s*\{[^}]*width:\s*224px/s);
+  assert.doesNotMatch(`${html}\n${css}`, /profile-radar|radar-counter-sweep|mask-image:\s*conic-gradient/);
   assert.doesNotMatch(html, /<canvas/);
 });
 
