@@ -102,7 +102,9 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(css, /@keyframes portrait-breathe/);
   assert.match(css, /@keyframes color-block-drift/);
   assert.match(css, /--block-acid:/);
+  assert.match(css, /--block-sky:\s*#20a8ff/);
   assert.match(css, /--block-hot:/);
+  assert.match(css, /--block-rose:\s*#ffb84d/);
   assert.match(css, /--block-rose:/);
   assert.match(css, /--signal-paper:/);
   assert.match(css, /\.portrait-card\s*\{[^}]*width:\s*224px/s);

@@ -19,7 +19,7 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 
 ## 视觉方向 / Visual Direction
 
-网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育与 GPA 组成三联信号板；项目以“产品画面 + 整块项目说明”交替排列，酸绿、青色、珊瑚红和玫红形成连续节奏。人物仍以小尺寸编辑式识别卡呈现，完整面部始终可见。
+网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育与 GPA 组成三联信号板；项目以“产品画面 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。人物仍以小尺寸编辑式识别卡呈现，完整面部始终可见。
 
 The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. The hero works as a personal identity dashboard, while each project pairs a product view with a full signal-color explanation panel. The compact editorial portrait card keeps the face fully visible within the denser system.
 
