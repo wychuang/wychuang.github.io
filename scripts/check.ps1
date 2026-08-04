@@ -32,6 +32,19 @@ try {
     if (-not $ready) {
       throw "Local HTTP smoke test did not load the portfolio page."
     }
+
+    $assetPaths = @(
+      "/assets/model-radar-screen.png",
+      "/assets/lightloom-agent-screen.png",
+      "/assets/search-eval-loop.png"
+    )
+
+    foreach ($assetPath in $assetPaths) {
+      $assetResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$port$assetPath" -UseBasicParsing -TimeoutSec 3
+      if ($assetResponse.StatusCode -ne 200 -or $assetResponse.RawContentLength -lt 10000) {
+        throw "Local asset smoke test failed for $assetPath."
+      }
+    }
   }
   finally {
     if ($server -and -not $server.HasExited) {

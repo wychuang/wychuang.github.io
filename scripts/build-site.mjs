@@ -1,4 +1,4 @@
-import { copyFile, mkdir, rm } from "node:fs/promises";
+import { copyFile, cp, mkdir, rm } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -13,6 +13,7 @@ const publicFiles = [
   "robots.txt",
   "sitemap.xml"
 ];
+const publicDirectories = ["assets"];
 
 if (outputRoot !== join(projectRoot, "dist")) {
   throw new Error("Refusing to build outside the project dist directory.");
@@ -25,4 +26,8 @@ for (const file of publicFiles) {
   await copyFile(join(projectRoot, file), join(outputRoot, basename(file)));
 }
 
-console.log(`Built ${publicFiles.length} public files in ${outputRoot}`);
+for (const directory of publicDirectories) {
+  await cp(join(projectRoot, directory), join(outputRoot, directory), { recursive: true });
+}
+
+console.log(`Built ${publicFiles.length} public files and ${publicDirectories.length} asset directory in ${outputRoot}`);
