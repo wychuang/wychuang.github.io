@@ -56,5 +56,6 @@ test("content remains visible without JavaScript and social metadata is complete
 test("site contains no unfinished placeholders or empty links", () => {
   assert.doesNotMatch(`${html}\n${css}\n${script}`, /\b(?:TODO|FIXME|PLACEHOLDER)\b/i);
   assert.doesNotMatch(html, /href="#"/);
-  assert.doesNotMatch(html, /不是\s*而是/);
+  const contrastCliche = new RegExp(["不", "是", "\\s*", "而", "是"].join(""));
+  assert.doesNotMatch(html, contrastCliche);
 });
