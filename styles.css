@@ -745,7 +745,7 @@ html[data-theme="light"] .portrait-code {
 
 .school-fact {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-columns: 72px minmax(0, 1fr);
   gap: 17px;
   align-items: center;
 }
@@ -754,18 +754,15 @@ html[data-theme="light"] .portrait-code {
   display: grid;
   width: 72px;
   height: 72px;
-  padding: 5px;
   place-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(22, 24, 18, 0.16);
-  border-radius: 0;
-  background: #fff;
-  transition: transform 160ms ease, border-color 160ms ease;
+  border-radius: 50%;
+  background: transparent;
+  transition: transform 180ms var(--ease-soft), filter 180ms ease;
 }
 
 .school-emblem:hover {
-  border-color: var(--acid);
   transform: translateY(-2px);
+  filter: drop-shadow(0 7px 9px rgba(17, 17, 15, 0.18));
 }
 
 .school-emblem img {
@@ -2026,11 +2023,8 @@ html[lang="en"] .experience .section-intro h2 {
 .education-card > img {
   width: 56px;
   height: 56px;
-  padding: 4px;
   object-fit: contain;
-  border: 1px solid rgba(22, 24, 18, 0.14);
-  border-radius: 50%;
-  background: #fff;
+  background: transparent;
 }
 
 .education-card time,

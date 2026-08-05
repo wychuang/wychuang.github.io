@@ -11,7 +11,7 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 ## 内容结构 / Content
 
 - 姓名、学历、专业、GPA、升学与求职状态 / identity, education, GPA, graduate study, and availability
-- 浙江大学与清华大学校徽强化的教育信息 / education blocks supported by official ZJU and Tsinghua emblems
+- 浙江大学与清华大学透明底、等视觉直径校徽强化的教育信息 / education blocks supported by transparent ZJU and Tsinghua emblems normalized to one optical diameter
 - Model Radar、Lightloom、AI 搜索评测、PubMed RAG 四个项目 / four selected projects
 - 可滑动的多图项目记录：真实产品界面、脱敏评测样本与明确标注的毕业设计功能原型 / swipeable project media with real product screens, a desensitized evaluation artifact, and clearly labeled graduation-project prototypes
 - 分组呈现的教育与实践经历 / grouped education and hands-on experience

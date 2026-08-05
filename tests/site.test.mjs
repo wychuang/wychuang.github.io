@@ -67,8 +67,8 @@ test("content remains visible without JavaScript and social metadata is complete
   assert.match(devServer, /"\.webp":\s*"image\/webp"/);
   for (const asset of [
     "profile-illustrated.webp",
-    "zju-emblem.png",
-    "tsinghua-emblem.jpg",
+    "zju-emblem-transparent.png",
+    "tsinghua-emblem-transparent.png",
     "model-radar-screen.png",
     "model-radar-map.png",
     "model-radar-detail.png",
@@ -80,6 +80,19 @@ test("content remains visible without JavaScript and social metadata is complete
   ]) {
     assert.ok((await stat(new URL(`assets/${asset}`, projectRoot))).size > 10_000, `invalid asset: ${asset}`);
   }
+});
+
+test("school emblems use matching transparent square canvases", async () => {
+  for (const asset of ["zju-emblem-transparent.png", "tsinghua-emblem-transparent.png"]) {
+    const png = await readFile(new URL(`assets/${asset}`, projectRoot));
+    assert.equal(png.toString("ascii", 1, 4), "PNG", `${asset} must remain a PNG`);
+    assert.equal(png.readUInt32BE(16), 256, `${asset} must use the normalized width`);
+    assert.equal(png.readUInt32BE(20), 256, `${asset} must use the normalized height`);
+    assert.equal(png[25], 6, `${asset} must preserve a full alpha channel`);
+  }
+
+  assert.match(css, /\.school-emblem\s*{[^}]*background:\s*transparent;/s);
+  assert.match(css, /\.education-card > img\s*{[^}]*background:\s*transparent;/s);
 });
 
 test("project media uses accessible user-controlled galleries", () => {
