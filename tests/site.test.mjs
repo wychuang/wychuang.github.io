@@ -134,7 +134,7 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(html, /assets\/profile-illustrated\.webp/);
   assert.match(css, /@keyframes portrait-scan/);
   assert.match(css, /@keyframes portrait-raster-slip/);
-  assert.match(css, /@keyframes portrait-raster-tear/);
+  assert.doesNotMatch(css, /\.portrait-raster::after|\.portrait-scanner::before|\.portrait-scanner::after/);
   const scannerRule = css.match(/\.portrait-scanner\s*\{([^}]*)\}/s)?.[1] ?? "";
   assert.match(scannerRule, /animation:\s*portrait-scan[^;]*infinite/);
   assert.doesNotMatch(scannerRule, /alternate/, "portrait scanner must travel downward in one direction");
@@ -169,6 +169,8 @@ test("contact section includes a meaningful motion-safe background radar", () =>
   }
   assert.match(css, /@keyframes contact-radar-sweep/);
   assert.match(css, /@keyframes contact-radar-ping/);
+  assert.equal((html.match(/class="contact-radar-beam contact-radar-beam-/g) ?? []).length, 3);
+  assert.match(html, /contact-radar-beam-wide" d="[^"]*A310 310 0 0 0/);
   assert.doesNotMatch(`${html}\n${css}`, /contact-radar-profile/);
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.contact-radar-sweep/);
   assert.match(css, /@media print[\s\S]*\.contact-radar/);
