@@ -95,6 +95,24 @@ test("school emblems use matching transparent square canvases", async () => {
   assert.match(css, /\.education-card > img\s*{[^}]*background:\s*transparent;/s);
 });
 
+test("hero education strip integrates GPA and meaningful school context", () => {
+  const zjuPanel = html.match(/<article class="school-fact school-fact-zju"[\s\S]*?<\/article>/)?.[0] ?? "";
+  const tsinghuaPanel = html.match(/<article class="school-fact school-fact-tsinghua"[\s\S]*?<\/article>/)?.[0] ?? "";
+
+  assert.equal((html.match(/class="school-fact school-fact-/g) ?? []).length, 2);
+  assert.doesNotMatch(html, /class="gpa-fact"/);
+  assert.match(zjuPanel, /class="school-gpa"/);
+  assert.match(zjuPanel, /生物医学工程/);
+  assert.match(zjuPanel, /公益服务标兵/);
+  assert.match(zjuPanel, /社会工作标兵/);
+  assert.match(zjuPanel, /SRTP 优秀结题/);
+  assert.match(tsinghuaPanel, /class="school-watermark school-department"/);
+  assert.match(tsinghuaPanel, /心理与认知/);
+  assert.match(tsinghuaPanel, /科学系/);
+  assert.match(css, /\.profile-facts\s*{[^}]*grid-template-columns:\s*minmax\(0, 1\.12fr\) minmax\(0, 0\.88fr\)/s);
+  assert.match(css, /\.school-program strong\s*{[^}]*font-size:\s*clamp\(16px, 1\.35vw, 21px\)/s);
+});
+
 test("project media uses accessible user-controlled galleries", () => {
   assert.equal((html.match(/class="media-gallery(?:\s|\")/g) ?? []).length, 4);
   assert.equal((html.match(/data-gallery-slide/g) ?? []).length, 13);
@@ -161,7 +179,7 @@ test("editorial portrait card stays compact, bold, and motion-aware", () => {
   assert.match(css, /--block-rose:/);
   assert.match(css, /--signal-paper:/);
   assert.match(css, /\.portrait-card\s*\{[^}]*width:\s*224px/s);
-  assert.match(css, /\.gpa-fact\s*\{[^}]*background:\s*var\(--block-acid\)/s);
+  assert.match(css, /\.school-gpa\s*\{[^}]*display:\s*flex/s);
   assert.match(css, /\.case-copy\s*\{[^}]*background:\s*var\(--case-accent\)/s);
   assert.match(css, /\.case-study:nth-of-type\(4\)\s*\{[^}]*--case-accent:\s*var\(--block-rose\)/s);
   assert.match(css, /@keyframes signal-band-drift/);
