@@ -738,12 +738,10 @@ html[data-theme="light"] .portrait-code {
 
 .school-fact {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.62fr) minmax(0, 0.38fr);
   min-width: 0;
   min-height: 188px;
-  padding: 0;
   overflow: hidden;
+  isolation: isolate;
   border-right: 1px solid var(--signal-ink);
   border-bottom: 0;
 }
@@ -766,8 +764,14 @@ html[data-theme="light"] .portrait-code {
   grid-template-columns: 72px minmax(0, 1fr);
   gap: 17px;
   align-items: center;
+  width: 66%;
+  min-height: 188px;
   min-width: 0;
   padding: 22px;
+}
+
+.school-fact-tsinghua .school-main {
+  width: 70%;
 }
 
 .school-copy {
@@ -809,19 +813,31 @@ html[data-theme="light"] .portrait-code {
   align-items: baseline;
   gap: 2px 10px;
   margin: 4px 0 0;
-  color: rgba(17, 17, 15, 0.7);
+  color: rgba(17, 17, 15, 0.74);
   line-height: 1.35;
 }
 
-.school-program strong {
+.school-program strong,
+.school-program-zju span {
   color: var(--signal-ink);
   font-size: clamp(16px, 1.35vw, 21px);
   font-weight: 800;
   letter-spacing: -0.035em;
 }
 
-.school-program span {
+.school-program:not(.school-program-zju) span {
   font-size: 11px;
+}
+
+.school-program-zju {
+  gap: 2px 7px;
+}
+
+.school-program-zju i {
+  color: rgba(17, 17, 15, 0.35);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-style: normal;
 }
 
 .profile-facts .school-fact .fact-label {
@@ -862,15 +878,18 @@ html[data-theme="light"] .portrait-code {
 }
 
 .school-watermark {
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  inset: -18% -10% -18% 43%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-  padding: 16px 18px;
+  padding: 22px 0;
   overflow: hidden;
-  color: rgba(17, 17, 15, 0.1);
-  border-left: 1px solid rgba(17, 17, 15, 0.11);
+  color: rgba(17, 17, 15, 0.095);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 73%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 73%, transparent 100%);
   pointer-events: none;
   transition: color 220ms ease;
 }
@@ -890,33 +909,37 @@ html[data-theme="light"] .portrait-code {
   z-index: 1;
   display: block;
   font-weight: 800;
-  line-height: 0.9;
+  line-height: 0.84;
   letter-spacing: -0.075em;
   white-space: nowrap;
 }
 
-.school-honors {
+.school-zju-backdrop {
   align-items: flex-start;
+  transform: rotate(-2deg);
 }
 
-.school-honors span:nth-child(1) {
-  font-size: clamp(24px, 2.45vw, 42px);
-  transform: translateX(-5%);
+.school-backdrop-biomedical {
+  font-size: clamp(38px, 3.7vw, 68px);
+  transform: translateX(1%);
 }
 
-.school-honors span:nth-child(2) {
-  font-size: clamp(27px, 2.75vw, 47px);
-  transform: translateX(8%);
+.school-backdrop-design {
+  font-size: clamp(42px, 4.2vw, 78px);
+  transform: translateX(13%);
 }
 
-.school-honors span:nth-child(3) {
+.school-backdrop-honors {
+  margin-top: 8px;
   font-family: var(--mono);
-  font-size: clamp(20px, 2vw, 34px);
-  transform: translateX(-1%);
+  font-size: clamp(10px, 0.9vw, 15px);
+  letter-spacing: 0.02em !important;
+  transform: translateX(6%);
 }
 
 .school-department {
   color: rgba(17, 17, 15, 0.12);
+  transform: rotate(1.5deg);
 }
 
 .school-department span {
@@ -924,7 +947,7 @@ html[data-theme="light"] .portrait-code {
 }
 
 .school-fact:hover .school-watermark {
-  color: rgba(17, 17, 15, 0.15);
+  color: rgba(17, 17, 15, 0.13);
 }
 
 .fact-label,
@@ -2512,6 +2535,7 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-main {
+    min-height: 218px;
     padding: 28px 30px;
   }
 
@@ -2519,7 +2543,8 @@ html.page-hidden .contact-radar-blip-pulse {
     font-size: clamp(27px, 1.8vw, 38px);
   }
 
-  .school-program strong {
+  .school-program strong,
+  .school-program-zju span {
     font-size: clamp(20px, 1.25vw, 27px);
   }
 
@@ -2664,14 +2689,15 @@ html.page-hidden .contact-radar-blip-pulse {
     grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   }
 
-  .school-fact {
-    grid-template-columns: minmax(0, 0.67fr) minmax(0, 0.33fr);
-  }
-
   .school-main {
     grid-template-columns: 60px minmax(0, 1fr);
     gap: 14px;
+    width: 72%;
     padding: 19px;
+  }
+
+  .school-fact-tsinghua .school-main {
+    width: 75%;
   }
 
   .school-emblem {
@@ -2680,7 +2706,7 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-watermark {
-    padding: 12px;
+    inset: -16% -16% -16% 46%;
   }
 
   .case-study {
@@ -2744,7 +2770,6 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-fact {
-    grid-template-columns: minmax(0, 0.64fr) minmax(0, 0.36fr);
     border-right: 0;
     border-bottom: 1px solid var(--signal-ink);
   }
@@ -2956,14 +2981,19 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-fact {
-    grid-template-columns: minmax(0, 0.68fr) minmax(100px, 0.32fr);
     min-height: 156px;
   }
 
   .school-main {
     grid-template-columns: 54px minmax(0, 1fr);
     gap: 12px;
+    width: 72%;
+    min-height: 156px;
     padding: 14px;
+  }
+
+  .school-fact-tsinghua .school-main {
+    width: 74%;
   }
 
   .school-emblem {
@@ -2975,23 +3005,28 @@ html.page-hidden .contact-radar-blip-pulse {
     font-size: 22px;
   }
 
-  .school-program {
+  .school-program:not(.school-program-zju) {
     display: block;
     margin-top: 3px;
   }
 
-  .school-program strong,
-  .school-program span {
+  .school-program:not(.school-program-zju) strong,
+  .school-program:not(.school-program-zju) span {
     display: block;
   }
 
-  .school-program strong {
+  .school-program strong,
+  .school-program-zju span {
     font-size: 16px;
   }
 
-  .school-program span {
+  .school-program:not(.school-program-zju) span {
     margin-top: 2px;
     font-size: 9px;
+  }
+
+  .school-program-zju {
+    gap: 1px 5px;
   }
 
   .school-gpa {
@@ -3008,20 +3043,24 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-watermark {
-    padding: 10px 8px;
+    inset: -12% -28% -12% 47%;
+    padding: 0;
   }
 
-  .school-honors span:nth-child(1),
-  .school-honors span:nth-child(2) {
-    font-size: clamp(16px, 4.8vw, 20px);
+  .school-backdrop-biomedical {
+    font-size: 34px;
   }
 
-  .school-honors span:nth-child(3) {
-    font-size: clamp(14px, 4.2vw, 17px);
+  .school-backdrop-design {
+    font-size: 38px;
+  }
+
+  .school-backdrop-honors {
+    font-size: 8px;
   }
 
   .school-department span {
-    font-size: clamp(18px, 5.2vw, 22px);
+    font-size: 32px;
   }
 
   .availability {
@@ -3402,14 +3441,19 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-fact {
-    grid-template-columns: minmax(0, 1fr) 84px;
     min-height: 150px;
   }
 
   .school-main {
     grid-template-columns: 46px minmax(0, 1fr);
     gap: 10px;
+    width: 76%;
+    min-height: 150px;
     padding: 12px 10px;
+  }
+
+  .school-fact-tsinghua .school-main {
+    width: 78%;
   }
 
   .school-emblem {
@@ -3421,7 +3465,8 @@ html.page-hidden .contact-radar-blip-pulse {
     font-size: 20px;
   }
 
-  .school-program strong {
+  .school-program strong,
+  .school-program-zju span {
     font-size: 13px;
   }
 
@@ -3434,20 +3479,24 @@ html.page-hidden .contact-radar-blip-pulse {
   }
 
   .school-watermark {
-    padding: 6px;
+    inset: -12% -36% -12% 48%;
+    padding: 0;
   }
 
-  .school-honors span:nth-child(1),
-  .school-honors span:nth-child(2) {
-    font-size: 17px;
+  .school-backdrop-biomedical {
+    font-size: 30px;
   }
 
-  .school-honors span:nth-child(3) {
-    font-size: 14px;
+  .school-backdrop-design {
+    font-size: 33px;
+  }
+
+  .school-backdrop-honors {
+    font-size: 8px;
   }
 
   .school-department span {
-    font-size: 19px;
+    font-size: 28px;
   }
 
   .prototype-flow {
@@ -3617,13 +3666,20 @@ html.page-hidden .contact-radar-blip-pulse {
   .profile-facts .school-fact .fact-label,
   .school-program,
   .school-program strong,
+  .school-program-zju span,
   .gpa-score,
   .gpa-score span {
     color: #11130f;
   }
 
   .school-fact {
-    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .school-main,
+  .school-fact-tsinghua .school-main {
+    width: 100%;
+    min-height: 0;
   }
 
   .school-watermark {

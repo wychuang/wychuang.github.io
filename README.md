@@ -11,7 +11,7 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 ## 内容结构 / Content
 
 - 姓名、学历、专业、GPA、升学与求职状态 / identity, education, GPA, graduate study, and availability
-- 浙江大学与清华大学双联教育板：透明等大校徽、浙大 GPA 与荣誉、清华院系信息 / paired education panels with normalized transparent emblems, ZJU GPA and honors, and the Tsinghua department
+- 浙江大学与清华大学双联教育板：透明等大校徽、浙大 GPA、两条学习方向与清华院系信息 / paired education panels with normalized transparent emblems, ZJU GPA, two fields of study, and the Tsinghua department
 - Model Radar、Lightloom、AI 搜索评测、PubMed RAG 四个项目 / four selected projects
 - 可滑动的多图项目记录：真实产品界面、脱敏评测样本与明确标注的毕业设计功能原型 / swipeable project media with real product screens, a desensitized evaluation artifact, and clearly labeled graduation-project prototypes
 - 分组呈现的教育与实践经历 / grouped education and hands-on experience
@@ -19,9 +19,9 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 
 ## 视觉方向 / Visual Direction
 
-网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育信息组成纸色与 DPSK 蓝双联学校板；GPA 收进浙大主信息，荣誉与清华院系名称以大号低对比字层占据各自右侧。项目以“多图工作记录 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。媒体区采用用户控制的胶片式导航，支持触控滑动、方向键与 Home/End，不会自动翻页。页面框架在大屏上延展到接近视口边缘，项目画面与信号面板随屏幕同步放大，正文保持适合阅读的行长。人物使用带低清信号纹理的简笔插画识别卡；联系区使用圆形项目状态雷达，四个方位对应产品、开发、评测和研究，半径对应原型、可用版本和已发布。
+网站直接转译 Model Radar 的控制室语言：巨型紧排标题、连续信号色块、硬边网格和高密度读数。首屏是一块个人身份仪表盘，教育信息组成纸色与 DPSK 蓝双联学校板；GPA 收进浙大主信息，生医工、工业设计、少量荣誉和清华院系名称作为可裁切的低对比背景字层，并在边缘渐隐。项目以“多图工作记录 + 整块项目说明”交替排列，酸绿、DPSK 蓝、珊瑚红和暖金形成连续节奏。媒体区采用用户控制的胶片式导航，支持触控滑动、方向键与 Home/End，不会自动翻页。页面框架在大屏上延展到接近视口边缘，项目画面与信号面板随屏幕同步放大，正文保持适合阅读的行长。人物使用带低清信号纹理的简笔插画识别卡；联系区使用圆形项目状态雷达，四个方位对应产品、开发、评测和研究，半径对应原型、可用版本和已发布。
 
-The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. The hero uses paired school panels: GPA stays with Zhejiang University, while verified honors and the Tsinghua department become large low-contrast context layers on the right. Each project uses a user-controlled filmstrip with touch swiping and keyboard navigation, without autoplay. The frame expands toward the viewport edges on large displays, while project media and signal panels scale up without stretching body copy into long lines. A low-detail line portrait carries a lo-fi signal layer. The contact section uses a circular project-status scope: direction maps product, build, evaluation, and research, while distance maps prototype, working, and shipped stages.
+The site directly translates Model Radar's control-room language through oversized compressed headlines, continuous signal blocks, hard grid lines, and compact readouts. The hero uses paired school panels: GPA stays with Zhejiang University, while Biomedical Engineering, Industrial Design, quiet honors, and the Tsinghua department sit in cropped, gradient-masked background type. Each project uses a user-controlled filmstrip with touch swiping and keyboard navigation, without autoplay. The frame expands toward the viewport edges on large displays, while project media and signal panels scale up without stretching body copy into long lines. A low-detail line portrait carries a lo-fi signal layer. The contact section uses a circular project-status scope: direction maps product, build, evaluation, and research, while distance maps prototype, working, and shipped stages.
 
 ## 本地预览 / Local Preview
 

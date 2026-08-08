@@ -48,7 +48,7 @@ npm run build
 - 避免通用 SaaS 卡片墙、紫色渐变和无目的装饰。
 - 动效承担进入、扫描和状态提示功能，并尊重 `prefers-reduced-motion`。
 - 项目媒体默认使用原生横向滚动与 `scroll-snap`；增强控件支持按钮、方向键、Home/End 和触控滑动。禁止自动轮播，页面进入后台时暂停持续动效。
-- 色块承担页面结构：首屏教育信息使用纸色与 DPSK 蓝双联学校板，GPA 收进浙大主信息，右侧大号低对比字层只呈现已核验荣誉与清华院系名称；项目使用整块酸绿、DPSK 蓝、珊瑚红和暖金说明面板；联系区使用纸色收束。色块之间用硬边与网格连接。
+- 色块承担页面结构：首屏教育信息使用纸色与 DPSK 蓝双联学校板，GPA 收进浙大主信息；专业、少量荣誉与清华院系名称只作为允许裁切的低对比背景字，并用渐变蒙版淡出边缘。项目使用整块酸绿、DPSK 蓝、珊瑚红和暖金说明面板；联系区使用纸色收束。色块之间用硬边与网格连接。
 - 章节标题使用 Model Radar 式 masthead：紧排巨型标题与小号等宽读数并置。项目说明和画面直接拼接，避免回到常规卡片与浮层。
 - 动效共用“落位—呼吸—扫描”的低幅度节奏；人物漂浮不超过 4px，图像缩放不超过 1.018，色块位移不超过 7px。
 - 简笔插画头像以站点所有者提供的本人照片为身份参考，使用均匀光线与中长焦比例，保持小尺寸，仅作为首屏识别符。
@@ -68,7 +68,7 @@ npm run build
 - Avoid generic SaaS card grids and decorative effects without an information purpose.
 - Motion should support entry, scanning, or status, with reduced-motion support.
 - Project media uses native horizontal scrolling and scroll snap, enhanced by buttons, Arrow keys, Home/End, and touch. Do not autoplay galleries, and pause continuous motion while the page is hidden.
-- Use color blocks as page structure: paired paper and DPSK blue school panels with GPA integrated into ZJU and verified honors or department context set as large low-contrast type; full acid, DPSK blue, coral, and warm amber project panels; and a paper contact close.
+- Use color blocks as page structure: paired paper and DPSK blue school panels with GPA integrated into ZJU; fields of study, quiet honors, and department context stay cropped and gradient-masked as low-contrast background type. Continue with full acid, DPSK blue, coral, and warm amber project panels, then a paper contact close.
 - Build section mastheads from oversized compressed titles, compact mono readouts, hard borders, and directly joined media/copy panels.
 - Keep motion on one low-amplitude settle, breathe, and scan rhythm; portrait drift stays within 4px, image scale within 1.018, and color-block travel within 7px.
 - Use the owner-approved likeness as the reference for a compact, low-detail illustrated identity card with registration marks and raster texture.

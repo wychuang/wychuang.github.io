@@ -103,14 +103,25 @@ test("hero education strip integrates GPA and meaningful school context", () => 
   assert.doesNotMatch(html, /class="gpa-fact"/);
   assert.match(zjuPanel, /class="school-gpa"/);
   assert.match(zjuPanel, /生物医学工程/);
+  assert.match(zjuPanel, /工业设计/);
+  assert.doesNotMatch(zjuPanel, /工业设计辅修/);
+  assert.match(zjuPanel, /class="school-watermark school-zju-backdrop"/);
+  assert.match(zjuPanel, /生医工/);
   assert.match(zjuPanel, /公益服务标兵/);
   assert.match(zjuPanel, /社会工作标兵/);
-  assert.match(zjuPanel, /SRTP 优秀结题/);
+  assert.match(zjuPanel, /SRTP/);
   assert.match(tsinghuaPanel, /class="school-watermark school-department"/);
   assert.match(tsinghuaPanel, /心理与认知/);
   assert.match(tsinghuaPanel, /科学系/);
   assert.match(css, /\.profile-facts\s*{[^}]*grid-template-columns:\s*minmax\(0, 1\.12fr\) minmax\(0, 0\.88fr\)/s);
-  assert.match(css, /\.school-program strong\s*{[^}]*font-size:\s*clamp\(16px, 1\.35vw, 21px\)/s);
+  assert.match(css, /mask-image:\s*linear-gradient\(90deg, transparent 0%, #000 16%, #000 73%, transparent 100%\)/);
+  assert.match(html, /hero\.summaryEducationZju[^>]*>[^<]*GPA 3\.8\/4\.0。<\/span><br><span data-i18n="hero\.summaryEducationTsinghua"/);
+});
+
+test("Model Radar links open the current switchable radar edition", () => {
+  const currentRadarLinks = html.match(/href="https:\/\/wychuang\.github\.io\/model-radar\/radar\.html"/g) ?? [];
+  assert.equal(currentRadarLinks.length, 5);
+  assert.doesNotMatch(html, /href="https:\/\/wychuang\.github\.io\/model-radar\/"/);
 });
 
 test("project media uses accessible user-controlled galleries", () => {
