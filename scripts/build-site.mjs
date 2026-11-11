@@ -13,7 +13,7 @@ const publicFiles = [
   "robots.txt",
   "sitemap.xml"
 ];
-const publicDirectories = ["assets"];
+const publicDirectories = ["assets", "river-of-influence"];
 
 if (outputRoot !== join(projectRoot, "dist")) {
   throw new Error("Refusing to build outside the project dist directory.");

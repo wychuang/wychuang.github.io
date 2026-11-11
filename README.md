@@ -8,6 +8,14 @@ This is Yichen Wang's résumé and portfolio site, focused on AI product work, m
 
 <https://wychuang.github.io/>
 
+## 时代之河 / River of Influence
+
+<https://wychuang.github.io/river-of-influence/>
+
+全屏交互作品，整理 TIME100 在 2004—2026 年的 23 届年度主榜，共 2,221 条人物、联名与集体记录。支持按年份浏览、头像与中文一句话事迹、姓名和事迹搜索、跨年连线，以及六条主题阅读路线。2000—2003 年保留为无年度主榜。
+
+`river-of-influence/` 包含该作品的独立静态网页、公开展示数据与运行资源，随现有 Pages 流程发布。
+
 ## 内容结构 / Content
 
 - 姓名、学历、专业、GPA、升学与求职状态 / identity, education, GPA, graduate study, and availability
